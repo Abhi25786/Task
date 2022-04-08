@@ -32,39 +32,6 @@ function LoginScreen() {
     }
     return (
 
-
-        // <View style={styling.MainContainer}>
-
-        //     {/* <View style={styling.viewcss}>
-        //         <Image source={images.user} style={styling.image} />
-
-        //         <TextInput placeholder={name.Both} placeholderTextColor={colors.black} style={styling.inputtext} onChangeText={(event) => setEmail(event)} />
-        //     </View> */}
-        //     <TextInputComponent
-        //         leftImage={true}
-        //         image={images?.user}
-        //         placeholder={'Enter Name'}
-        //         placeholderTextColor={colors?.black}
-
-        //     />
-        //     {
-        //         show ? <Text style={styling.error}>Enter Valid email or Number</Text> : null
-        //     }
-        //     <View style={styling.viewcss}>
-        //         <Image source={images.password} style={styling.image} />
-        //         <TextInput placeholder={name.Password} placeholderTextColor={colors.black} style={styling.inputtext} onChangeText={(event) => setpassword(event)} />
-        //     </View>
-        //     {
-        //         showpassword ? <Text style={styling.error}>Enter Valid password</Text> : null
-        //     }
-        //     {/* <TouchableOpacity onPress={Click}>
-        //         <View style={styling.btnview}>
-        //             <Text style={styling.btntext}>{name.Login}</Text>
-        //         </View>
-        //     </TouchableOpacity> */}
-        //     <Buttoncustam name='Login' onpress={Click} stylbtn={addcss.btnview} />
-
-        // </View>
         <View style={addcss.MainContainer}>
             <ScrollView>
 

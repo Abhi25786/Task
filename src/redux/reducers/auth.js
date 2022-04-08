@@ -1,23 +1,11 @@
-import types from '../types';
-
-const initial_state = {
-  userData: {},
-};
-
-export default function (state = initial_state, action) {
-  switch (action.type) {
-    case types.LOGIN: {
-      const data = action.payload;
-      console.log(data, 'this login data');
-      return {userData: data};
-    }
-    case types.USER_LOGOUT: {
-      const data = action.payload;
-      return {userData: undefined};
+import types from "../types";
+const initialState = false;
+const Continue = (state = initialState, action) => {
+    switch (action.type) {
+        case types.LOGIN: return state = true;
+        case types.USER_LOGOUT: return state = false;
+        default: return state;
     }
 
-    default: {
-      return {...state};
-    }
-  }
 }
+export default Continue

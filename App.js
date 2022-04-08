@@ -17,7 +17,9 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import { Provider } from 'react-redux';
 import Routes from './src/navigation/Routes';
+import store from './src/redux/store';
 import HomeScreen from './src/screens/homeScreen/HomeScreen';
 
 
@@ -27,8 +29,10 @@ const App = () => {
 
   return (
     <>
+      <Provider store={store}>
 
-      <Routes />
+        <Routes />
+      </Provider>
 
     </>
   );

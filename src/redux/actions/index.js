@@ -1,8 +1,4 @@
-// import * as auth from "./auth";
-import * as auth from './auth';
-import * as home from './home';
-
+import * as auth from './auth'
 export default {
-  ...auth,
-  ...home,
+    ...auth,
 };
