@@ -33,8 +33,8 @@ function LoginScreen() {
         }else{
             setShowpassword(true)
         }
-
-    }
+  
+}
     return (
 
         <View style={addcss.MainContainer}>
@@ -69,6 +69,7 @@ function LoginScreen() {
         </View>
 
     )
-}
+ }
+
 
 export default LoginScreen
