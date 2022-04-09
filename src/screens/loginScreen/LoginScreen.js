@@ -21,17 +21,29 @@ function LoginScreen() {
 
     const dispatch =useDispatch()
     const Click = () => {
-        if (emailvelidation.test(email)) {
-            console.log("good")
-        } else if (strongRegex.test(password)) {
-            dispatch(loginContinue())
+        // if (emailvelidation.test(email)) {
+        //    
+        // } else if (strongRegex.test(password)) {
+        //     dispatch(loginContinue())
 
-        } else if (email == '') {
+        // } else if (email == '') {
+        //     setShow(true)
+        // } else if (password == '') {
+        //     setShow(false)
+        //     setShowpassword(true)
+        // }
+        if(emailvelidation.test(email)){
+setShow(false)
+        }else{
             setShow(true)
-        } else if (password == '') {
-            setShow(false)
+        }
+         if(strongRegex.test(password)){
+           setShow(false)
+            dispatch(loginContinue())
+        }else{
             setShowpassword(true)
         }
+
     }
     return (
 
