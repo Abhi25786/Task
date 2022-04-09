@@ -21,19 +21,9 @@ function LoginScreen() {
 
     const dispatch =useDispatch()
     const Click = () => {
-        // if (emailvelidation.test(email)) {
-        //    
-        // } else if (strongRegex.test(password)) {
-        //     dispatch(loginContinue())
-
-        // } else if (email == '') {
-        //     setShow(true)
-        // } else if (password == '') {
-        //     setShow(false)
-        //     setShowpassword(true)
-        // }
+     
         if(emailvelidation.test(email)){
-setShow(false)
+        setShow(false)
         }else{
             setShow(true)
         }
