@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 import { useSelector,useDispatch } from 'react-redux'
 import { images } from '../../asscets/pic'
 import { addData, deleData } from '../../redux/actions/auth'
+import colors from '../../styles/colors'
 
 import styling from '../loginScreen/logincss'
 import homecss from './homecss'
@@ -19,8 +20,8 @@ const list = useSelector((state) => state.datainput.list)
     list.map((elem) =>{
         return(
           <>
-<View style={{flexDirection:"row" ,marginHorizontal:10,borderColor:"black",borderWidth:2,marginVertical:5,borderRadius:10}}>
-<View style={{flex:0.8}}>
+<View style={{flexDirection:"row" ,marginHorizontal:10,borderColor:colors.lightGreyBg,borderWidth:2,marginVertical:5,borderRadius:10}}>
+<View style={{flex:0.8,marginLeft:10}}>
             <Text style={{color:"black"}}>{elem.name}</Text>
             <Text style={{color:"black"}}>{elem.phone}</Text>
             <Text style={{color:"black"}}>{elem.age}</Text>
@@ -30,10 +31,10 @@ const list = useSelector((state) => state.datainput.list)
 </View>
 <View style={{flex:0.2 ,flexDirection:"column",alignItems:"center",justifyContent:"space-between",paddingVertical:10}}>
 <TouchableOpacity>
-<Image source={images.address} style={{height:30,width:30}}/>
+<Image source={images.trash} style={{height:30,width:30}}/>
 </TouchableOpacity>
 <TouchableOpacity>
-<Image source={images.address} style={{height:30,width:30}}/>
+<Image source={images.update} style={{height:30,width:30}}/>
 </TouchableOpacity>
 </View>
 
@@ -48,7 +49,11 @@ const list = useSelector((state) => state.datainput.list)
 }
      
             <TouchableOpacity onPress={() => navigation.navigate("Add Data")}>
+
+            <View style={{flexDirection:"row",justifyContent:"flex-end",marginRight:5}}>
+
                 <Image source={images.Add} style={homecss.addbtn} />
+            </View>
 
             </TouchableOpacity>
 

@@ -74,7 +74,8 @@ const data ={addname,addphone,age,rollnumber,address}
           placeholder={'Enter Name'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setName(event)}
-          value={addname}
+         
+          
         />
         {showname ? (
           <TextComponent name={'Enter Name'} styling={commanstyle.error} />
@@ -86,7 +87,8 @@ const data ={addname,addphone,age,rollnumber,address}
           placeholder={'Enter Phone Number '}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setPhone(event)}
-          value={addphone}
+      
+          keyboardtype={"numeric"}
         
         />
         {showphone ? (
@@ -102,7 +104,8 @@ const data ={addname,addphone,age,rollnumber,address}
           placeholder={'Enter age'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setAge(event)}
-          value={age}
+         
+          keyboardtype={"numeric"}
         
         />
         {showage ? (
@@ -113,7 +116,7 @@ const data ={addname,addphone,age,rollnumber,address}
           placeholder={'Enter roll number'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setRollnumber(event)}
-          value={rollnumber}
+          keyboardtype={"numeric"}
         
         />
         {showrollnumber ? (
@@ -128,7 +131,7 @@ const data ={addname,addphone,age,rollnumber,address}
           placeholder={'Enter Address'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setAddress(event)}
-          value={address}
+       
         />
         {showaddress ? (
           <TextComponent name={'Enter Address'} styling={commanstyle.error} />
