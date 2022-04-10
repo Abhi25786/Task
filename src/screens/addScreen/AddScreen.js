@@ -1,57 +1,131 @@
-import React from 'react'
-import { Text, View, SafeAreaView, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native'
-import { images } from '../../asscets/pic'
-import Button from '../../components/Button'
-import TextInputComponent from '../../components/TextInput'
-import name from '../../navigation/navigationString'
-import colors from '../../styles/colors'
+import React, {useState} from 'react';
+import {
+  Text,
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+  TextInput,
+  Image,
+  ScrollView,
+} from 'react-native';
+import {images} from '../../asscets/pic';
+import Button from '../../components/Button';
+import TextComponent from '../../components/TextComponent';
+import TextInputComponent from '../../components/TextInput';
+import name from '../../navigation/navigationString';
+import colors from '../../styles/colors';
+import {commanstyle} from '../../styles/styling';
 
-import addcss from './addcss'
+import addcss from './addcss';
 function AddScreen() {
-    return (
-        <View style={addcss.MainContainer}>
-            <ScrollView>
+  // ----------------------------this is inputtext usestate----------------------------//
+  const [addname, setName] = useState('');
+  const [addphone, setPhone] = useState('');
+  const [age, setAge] = useState('');
+  const [rollnumber, setRollnumber] = useState('');
+  const [address, setAddress] = useState('');
 
-                <TextInputComponent
-                    leftImage={true}
-                    image={images?.user}
-                    placeholder={'Enter Name'}
-                    placeholderTextColor={colors?.black}
+  //---------------------------------this is error useState----------------------------//
+  const [showname, setshowName] = useState(false);
+  const [showphone, setshowPhone] = useState(false);
+  const [showage, setshowAge] = useState(false);
+  const [showrollnumber, setshowRollnumber] = useState(false);
+  const [showaddress, setshowAddress] = useState(false);
 
-                />
-                <TextInputComponent
-                    leftImage={true}
-                    image={images?.phonebok}
-                    placeholder={'Enter Phone Number '}
-                    placeholderTextColor={colors?.black}
-                />
-                <TextInputComponent
-                    leftImage={false}
-                    img={images.Add}
-                    rightImage={false}
-                    placeholder={'Enter age'}
-                    placeholderTextColor={colors?.black}
+  const phonevalidation = /^[\d]{10}$/;
 
-                />
-                <TextInputComponent
+  const Click = () => {
 
-                    image={images?.address}
-                    placeholder={'Enter roll number'}
-                    placeholderTextColor={colors?.black}
-                />
-                <TextInputComponent
-                    leftImage={true}
-                    image={images?.address}
-                    placeholder={'Enter Address'}
-                    placeholderTextColor={colors?.black}
-                />
+    if (addname == '') {
+      setshowName(true);
+    } else if (addphone.length !== 10) {
+      setshowName(false);
 
+      setshowPhone(true);
+    } else if (age.length !== 2) {
+      setshowPhone(false);
 
+      setshowAge(true);
+    } else if (rollnumber === '') {
+      setshowAge(false);
+      setshowRollnumber(true);
+    } else if (address === '') {
+      setshowRollnumber(false);
+      setshowAddress(true);
+    } else {
+      setshowAddress(false);
 
-                <Button name={name?.Submit} onpress={() => console.log("hello")} stylbtn={addcss.btnview} />
-            </ScrollView>
-        </View>
-    )
+      console.log('good');
+    }
+  };
+
+  return (
+    <View style={addcss.MainContainer}>
+      <ScrollView>
+        <TextInputComponent
+          leftImage={true}
+          image={images?.user}
+          placeholder={'Enter Name'}
+          placeholderTextColor={colors?.black}
+          onchnagetext={event => setName(event)}
+        />
+        {showname ? (
+          <TextComponent name={'Enter Name'} styling={commanstyle.error} />
+        ) : null}
+
+        <TextInputComponent
+          leftImage={true}
+          image={images?.phonebok}
+          placeholder={'Enter Phone Number '}
+          placeholderTextColor={colors?.black}
+          onchnagetext={event => setPhone(event)}
+          keyboardType={'numeric'}
+        />
+        {showphone ? (
+          <TextComponent
+            name={'Enter Valid Number'}
+            styling={commanstyle.error}
+          />
+        ) : null}
+        <TextInputComponent
+          leftImage={false}
+          img={images.Add}
+          rightImage={false}
+          placeholder={'Enter age'}
+          placeholderTextColor={colors?.black}
+          onchnagetext={event => setAge(event)}
+          keyboardType={'numeric'}
+        />
+        {showage ? (
+          <TextComponent name={'Enter Valid Age'} styling={commanstyle.error} />
+        ) : null}
+        <TextInputComponent
+          image={images?.address}
+          placeholder={'Enter roll number'}
+          placeholderTextColor={colors?.black}
+          onchnagetext={event => setRollnumber(event)}
+          keyboardType={'numeric'}
+        />
+        {showrollnumber ? (
+          <TextComponent
+            name={'Enter Valid Roll Number'}
+            styling={commanstyle.error}
+          />
+        ) : null}
+        <TextInputComponent
+          leftImage={true}
+          image={images?.address}
+          placeholder={'Enter Address'}
+          placeholderTextColor={colors?.black}
+          onchnagetext={event => setAddress(event)}
+        />
+        {showaddress ? (
+          <TextComponent name={'Enter Address'} styling={commanstyle.error} />
+        ) : null}
+        <Button name={name?.Submit} onpress={Click} stylbtn={addcss.btnview} />
+      </ScrollView>
+    </View>
+  );
 }
 
-export default AddScreen
+export default AddScreen;

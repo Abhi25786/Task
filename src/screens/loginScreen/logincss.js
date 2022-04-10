@@ -34,9 +34,7 @@ const styling = StyleSheet.create({
         color: "white",
         fontSize: 20,
     },
-    error: {
-        color: colors.redB
-    }
+  
 
 
 })
