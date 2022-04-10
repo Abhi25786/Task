@@ -23,6 +23,12 @@ const initiallistState = {
           },
         ],
       }
+      case 'DELETE_DATA':
+ const newlist= state.list.filter((elem) => elem.id !== action.id)
+        return {
+          ...state,
+          list :newlist
+        }
 
     default :return state
      

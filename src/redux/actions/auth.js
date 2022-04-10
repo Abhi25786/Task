@@ -20,8 +20,9 @@ export const addData = (data) => {
     },
   };
 };
-export const deleData = () => {
+export const deleData = (id) => {
   return {
     type: 'DELETE_DATA',
+    id
   };
 };
