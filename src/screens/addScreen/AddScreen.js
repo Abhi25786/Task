@@ -8,16 +8,18 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
+import { useDispatch } from 'react-redux';
 import {images} from '../../asscets/pic';
 import Button from '../../components/Button';
 import TextComponent from '../../components/TextComponent';
 import TextInputComponent from '../../components/TextInput';
 import name from '../../navigation/navigationString';
+import { addData } from '../../redux/actions/auth';
 import colors from '../../styles/colors';
 import {commanstyle} from '../../styles/styling';
 
 import addcss from './addcss';
-function AddScreen() {
+function AddScreen({navigation}) {
   // ----------------------------this is inputtext usestate----------------------------//
   const [addname, setName] = useState('');
   const [addphone, setPhone] = useState('');
@@ -32,8 +34,10 @@ function AddScreen() {
   const [showrollnumber, setshowRollnumber] = useState(false);
   const [showaddress, setshowAddress] = useState(false);
 
-  const phonevalidation = /^[\d]{10}$/;
+  const dispatch =useDispatch();
 
+  const phonevalidation = /^[\d]{10}$/;
+const data ={addname,addphone,age,rollnumber,address}
   const Click = () => {
 
     if (addname == '') {
@@ -56,6 +60,8 @@ function AddScreen() {
       setshowAddress(false);
 
       console.log('good');
+      dispatch(addData(data))
+      navigation.navigate('Home')
     }
   };
 
@@ -68,6 +74,7 @@ function AddScreen() {
           placeholder={'Enter Name'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setName(event)}
+          value={addname}
         />
         {showname ? (
           <TextComponent name={'Enter Name'} styling={commanstyle.error} />
@@ -79,7 +86,8 @@ function AddScreen() {
           placeholder={'Enter Phone Number '}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setPhone(event)}
-          keyboardType={'numeric'}
+          value={addphone}
+        
         />
         {showphone ? (
           <TextComponent
@@ -94,7 +102,8 @@ function AddScreen() {
           placeholder={'Enter age'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setAge(event)}
-          keyboardType={'numeric'}
+          value={age}
+        
         />
         {showage ? (
           <TextComponent name={'Enter Valid Age'} styling={commanstyle.error} />
@@ -104,7 +113,8 @@ function AddScreen() {
           placeholder={'Enter roll number'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setRollnumber(event)}
-          keyboardType={'numeric'}
+          value={rollnumber}
+        
         />
         {showrollnumber ? (
           <TextComponent
@@ -118,6 +128,7 @@ function AddScreen() {
           placeholder={'Enter Address'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setAddress(event)}
+          value={address}
         />
         {showaddress ? (
           <TextComponent name={'Enter Address'} styling={commanstyle.error} />

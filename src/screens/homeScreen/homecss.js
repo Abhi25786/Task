@@ -8,9 +8,8 @@ const homecss = StyleSheet.create({
     addbtn: {
         height: 50,
         width: 50,
-        position: "absolute",
-        marginTop: 700,
-        right: 10
+      
+      
     }
 })
 export default homecss

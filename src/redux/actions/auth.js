@@ -1,13 +1,27 @@
-import types from "../types"
+import types from '../types';
 
-types
 export const loginContinue = () => {
-    return {
-        type: types.LOGIN
-    }
-}
+  return {
+    type: types.LOGIN,
+  };
+};
 export const logoutContinue = () => {
-    return {
-        type: types.USER_LOGOUT
-    }
-}
+  return {
+    type: types.USER_LOGOUT,
+  };
+};
+export const addData = (data) => {
+  const nextid = 0;
+  return {
+    type: 'ADD_DATA',
+    payload: {
+      id: Math.random,
+      data: data,
+    },
+  };
+};
+export const deleData = () => {
+  return {
+    type: 'DELETE_DATA',
+  };
+};
