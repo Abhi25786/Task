@@ -21,21 +21,21 @@ function LoginScreen() {
 
     const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
 
-    const dispatch =useDispatch()
+    const dispatch = useDispatch()
     const Click = () => {
-     
-        
-        if(email.length < 10){
+
+
+        if (email.length < 10) {
             setShow(true)
-        }else if(strongRegex.test(password)){
+        } else if (strongRegex.test(password)) {
             dispatch(loginContinue())
-        }else{
+        } else {
             setShow(false)
             setShowpassword(true)
         }
-         
-  
-}
+
+
+    }
     return (
 
         <View style={addcss.MainContainer}>
@@ -50,7 +50,7 @@ function LoginScreen() {
 
                 />
                 {
-                    show ? <TextComponent name={'Enter Email or Number'} styling={commanstyle.error}/> : null
+                    show ? <TextComponent name={'Enter Email or Number'} styling={commanstyle.error} /> : null
                 }
                 <TextInputComponent
                     leftImage={true}
@@ -60,7 +60,7 @@ function LoginScreen() {
                     onchnagetext={(event) => setpassword(event)}
                 />
                 {
-                    showpassword ? <TextComponent name={'Enter valid password'} styling={commanstyle.error}/> : null
+                    showpassword ? <TextComponent name={'Enter valid password'} styling={commanstyle.error} /> : null
                 }
 
 
@@ -70,7 +70,7 @@ function LoginScreen() {
         </View>
 
     )
- }
+}
 
 
 export default LoginScreen

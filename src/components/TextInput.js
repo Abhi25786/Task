@@ -11,8 +11,8 @@ const TextInputComponent = ({
     leftImage = false,
     rightImage = false,
     onchnagetext = '',
-    keyboardtype='',
-  
+    keyboardtype = '',
+
 
 }) => {
     return (

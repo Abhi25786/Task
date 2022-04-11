@@ -14,12 +14,12 @@ const Stack = createStackNavigator();
 
 export default function Routes() {
 
- const data = useSelector(state => state.Continue)
+    const data = useSelector(state => state.Continue)
     return (
 
         <NavigationContainer>
             <Stack.Navigator>
-                {data ? HomeNav(Stack) : AuthNav(Stack)}
+                {true ? HomeNav(Stack) : AuthNav(Stack)}
             </Stack.Navigator>
         </NavigationContainer>
     );

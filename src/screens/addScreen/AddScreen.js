@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   View,
@@ -9,23 +9,24 @@ import {
   ScrollView,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
-import {images} from '../../asscets/pic';
+import { images } from '../../asscets/pic';
 import Button from '../../components/Button';
 import TextComponent from '../../components/TextComponent';
 import TextInputComponent from '../../components/TextInput';
 import name from '../../navigation/navigationString';
 import { addData } from '../../redux/actions/auth';
 import colors from '../../styles/colors';
-import {commanstyle} from '../../styles/styling';
+import { commanstyle } from '../../styles/styling';
 
 import addcss from './addcss';
-function AddScreen({navigation}) {
+function AddScreen({ navigation }) {
   // ----------------------------this is inputtext usestate----------------------------//
   const [addname, setName] = useState('');
   const [addphone, setPhone] = useState('');
   const [age, setAge] = useState('');
   const [rollnumber, setRollnumber] = useState('');
   const [address, setAddress] = useState('');
+
 
   //---------------------------------this is error useState----------------------------//
   const [showname, setshowName] = useState(false);
@@ -34,10 +35,10 @@ function AddScreen({navigation}) {
   const [showrollnumber, setshowRollnumber] = useState(false);
   const [showaddress, setshowAddress] = useState(false);
 
-  const dispatch =useDispatch();
+  const dispatch = useDispatch();
 
-  const phonevalidation = /^[\d]{10}$/;
-const data ={addname,addphone,age,rollnumber,address}
+
+  const data = { addname, addphone, age, rollnumber, address }
   const Click = () => {
 
     if (addname == '') {
@@ -56,7 +57,8 @@ const data ={addname,addphone,age,rollnumber,address}
     } else if (address === '') {
       setshowRollnumber(false);
       setshowAddress(true);
-    } else {
+    }
+    else {
       setshowAddress(false);
 
       console.log('good');
@@ -64,6 +66,7 @@ const data ={addname,addphone,age,rollnumber,address}
       navigation.navigate('Home')
     }
   };
+
 
   return (
     <View style={addcss.MainContainer}>
@@ -74,8 +77,8 @@ const data ={addname,addphone,age,rollnumber,address}
           placeholder={'Enter Name'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setName(event)}
-         
-          
+
+
         />
         {showname ? (
           <TextComponent name={'Enter Name'} styling={commanstyle.error} />
@@ -87,9 +90,9 @@ const data ={addname,addphone,age,rollnumber,address}
           placeholder={'Enter Phone Number '}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setPhone(event)}
-      
+
           keyboardtype={"numeric"}
-        
+
         />
         {showphone ? (
           <TextComponent
@@ -104,9 +107,9 @@ const data ={addname,addphone,age,rollnumber,address}
           placeholder={'Enter age'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setAge(event)}
-         
+
           keyboardtype={"numeric"}
-        
+
         />
         {showage ? (
           <TextComponent name={'Enter Valid Age'} styling={commanstyle.error} />
@@ -117,7 +120,7 @@ const data ={addname,addphone,age,rollnumber,address}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setRollnumber(event)}
           keyboardtype={"numeric"}
-        
+
         />
         {showrollnumber ? (
           <TextComponent
@@ -131,7 +134,7 @@ const data ={addname,addphone,age,rollnumber,address}
           placeholder={'Enter Address'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setAddress(event)}
-       
+
         />
         {showaddress ? (
           <TextComponent name={'Enter Address'} styling={commanstyle.error} />

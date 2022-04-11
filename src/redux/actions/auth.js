@@ -11,11 +11,11 @@ export const logoutContinue = () => {
   };
 };
 export const addData = (data) => {
-  const nextid = 0;
+
   return {
     type: 'ADD_DATA',
     payload: {
-      id: Math.random,
+      id: Math.floor(Math.random() * 100),
       data: data,
     },
   };
@@ -24,5 +24,6 @@ export const deleData = (id) => {
   return {
     type: 'DELETE_DATA',
     id
+
   };
 };
