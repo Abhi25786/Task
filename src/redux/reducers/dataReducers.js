@@ -23,18 +23,7 @@ const datainput = (state = initiallistState, action) => {
         ],
       }
     case 'DELETE_DATA':
-      // const newlist = [...state.list];
 
-      // const index = state.list.findIndex((newlist) => newlist.id === action.id);
-      // console.log(index)
-
-      // if (index > 0) {
-      //   newlist.slice(index, 1);
-      // } else {
-      //   console.warn(
-      //     `Can't remove product (id: ${action.id} ) as its not in cart.`
-      //   )
-      // }
       const newlist = state.list.filter((elem) => elem.id !== action.id)
       return {
         ...state,
