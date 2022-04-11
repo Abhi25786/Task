@@ -11,7 +11,7 @@ const TextInputComponent = ({
     leftImage = false,
     rightImage = false,
     onchnagetext = '',
-    keyboardtype = '',
+    keyboardtype,
 
 
 }) => {
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     },
     viewcss: {
         flexDirection: "row",
-        marginHorizontal: 5,
+        marginHorizontal: 10,
         marginVertical: 10,
         alignItems: "center",
         borderColor: colors.lightGreyBg,

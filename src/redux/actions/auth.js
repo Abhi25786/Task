@@ -27,3 +27,10 @@ export const deleData = (id) => {
 
   };
 };
+export const updateData = (id) => {
+  return {
+    type: 'Update_Data',
+    id
+
+  };
+};

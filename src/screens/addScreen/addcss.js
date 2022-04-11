@@ -32,7 +32,7 @@ const addcss = StyleSheet.create
         btnview: {
             alignItems: "center",
             backgroundColor: colors.blueB,
-            marginHorizontal: 5,
+            marginHorizontal: 10,
             paddingVertical: 5
 
         },

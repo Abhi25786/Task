@@ -4,7 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 import { useSelector, useDispatch } from 'react-redux'
 import { images } from '../../asscets/pic'
 import TextComponent from '../../components/TextComponent'
-import { addData, deleData } from '../../redux/actions/auth'
+import { addData, deleData, updateData } from '../../redux/actions/auth'
 import colors from '../../styles/colors'
 
 import styling from '../loginScreen/logincss'
@@ -13,14 +13,14 @@ import homecss from './homecss'
 function HomeScreen({ navigation }) {
     const dispatch = useDispatch()
     const list = useSelector((state) => state.datainput.list)
-    // console.log(list[0].id)
-    // const Click = (elem) => {
-    //     dispatch(deleData(elem.id))
-    // }
+
+
+
     return (
         <SafeAreaView style={homecss.maincontainer}>
-            {/* <Image source={images.Add} style={homecss.addbtn} /> */}
+
             <ScrollView>
+                {/* ----------------------------Show Todo List------------------------------------ */}
                 {
                     list.map((elem) => {
                         return (
@@ -41,20 +41,17 @@ function HomeScreen({ navigation }) {
                                         <Image source={images.trash} style={{ height: 30, width: 30 }} />
 
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => navigation.navigate("Add Data",)}>
+                                    <TouchableOpacity >
                                         <Image source={images.update} style={{ height: 30, width: 30 }} />
                                     </TouchableOpacity>
                                 </View>
 
                             </View>
-
-
-
                         )
                     })
                 }
 
-
+                {/* --------------------------------Add Todo Button------------------------------- */}
                 <TouchableOpacity onPress={() => navigation.navigate("Add Data")}>
 
                     <View style={{ flexDirection: "row", justifyContent: "flex-end", marginRight: 5 }}>

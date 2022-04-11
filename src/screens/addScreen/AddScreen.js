@@ -71,6 +71,7 @@ function AddScreen({ navigation }) {
   return (
     <View style={addcss.MainContainer}>
       <ScrollView>
+        {/* --------------------------------Add todo textinput------------------------------ */}
         <TextInputComponent
           leftImage={true}
           image={images?.user}
@@ -80,6 +81,7 @@ function AddScreen({ navigation }) {
 
 
         />
+        {/* ----------------------------------Show empty error------------------------------ */}
         {showname ? (
           <TextComponent name={'Enter Name'} styling={commanstyle.error} />
         ) : null}
@@ -139,6 +141,8 @@ function AddScreen({ navigation }) {
         {showaddress ? (
           <TextComponent name={'Enter Address'} styling={commanstyle.error} />
         ) : null}
+
+        {/* ---------------------------This is submit button---------------------------- */}
         <Button name={name?.Submit} onpress={Click} stylbtn={addcss.btnview} />
       </ScrollView>
     </View>

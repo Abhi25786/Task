@@ -22,6 +22,8 @@ function LoginScreen() {
     const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
 
     const dispatch = useDispatch()
+
+    // --------------------------------Login button function-----------------------------//
     const Click = () => {
 
 
@@ -40,7 +42,7 @@ function LoginScreen() {
 
         <View style={addcss.MainContainer}>
             <ScrollView>
-
+                {/* ------------------------------------Email textinput------------------------------------- */}
                 <TextInputComponent
                     leftImage={true}
                     image={images?.user}
@@ -49,9 +51,12 @@ function LoginScreen() {
                     onchnagetext={(event) => setEmail(event)}
 
                 />
+                {/* ------------------------------------Show wrong Email------------------------------------- */}
                 {
                     show ? <TextComponent name={'Enter Email or Number'} styling={commanstyle.error} /> : null
                 }
+                {/* ------------------------------------Password textinput------------------------------------- */}
+
                 <TextInputComponent
                     leftImage={true}
                     image={images?.password}
@@ -59,12 +64,14 @@ function LoginScreen() {
                     placeholderTextColor={colors?.black}
                     onchnagetext={(event) => setpassword(event)}
                 />
+                {/* ------------------------------------Show wrong password------------------------------------- */}
+
                 {
                     showpassword ? <TextComponent name={'Enter valid password'} styling={commanstyle.error} /> : null
                 }
 
 
-
+                {/* ------------------------------------Login Button------------------------------------- */}
                 <Buttoncustam name='Login' onpress={Click} stylbtn={addcss.btnview} />
             </ScrollView>
         </View>
