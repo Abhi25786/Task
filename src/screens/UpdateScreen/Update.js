@@ -6,8 +6,12 @@ import { updateData } from '../../redux/actions/auth'
 function Update({ route }) {
     dispatch = useDispatch()
     const allData = route?.params?.paramData
-    console.log(allData, "al")
-    const [update, setUpdate] = useState(allData.name)
+
+    // const [update, setUpdate] = useState(allData.name)
+    // const [number, setnum] = useState(allData.name)
+    // const [ageset, setUpdate] = useState(allData.name)
+    // const [update, setUpdate] = useState(allData.name)
+    // const [update, setUpdate] = useState(allData.name)
     const Click = () => {
         dispatch(updateData({ allData, update }))
     }
