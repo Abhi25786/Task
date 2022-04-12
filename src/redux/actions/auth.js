@@ -27,10 +27,14 @@ export const deleData = (id) => {
 
   };
 };
-export const updateData = (id) => {
+export const updateData = () => {
+
   return {
     type: 'Update_Data',
-    id
 
+    // payload: {
+    //   value: data,
+    //   update: update
+    // }
   };
 };

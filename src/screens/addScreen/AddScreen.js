@@ -20,12 +20,13 @@ import { commanstyle } from '../../styles/styling';
 
 import addcss from './addcss';
 function AddScreen({ navigation }) {
+
   // ----------------------------this is inputtext usestate----------------------------//
-  const [addname, setName] = useState('');
-  const [addphone, setPhone] = useState('');
-  const [age, setAge] = useState('');
-  const [rollnumber, setRollnumber] = useState('');
-  const [address, setAddress] = useState('');
+  const [addname, setName] = useState('Abhishek');
+  const [addphone, setPhone] = useState('8872412819');
+  const [age, setAge] = useState('21');
+  const [rollnumber, setRollnumber] = useState('1818');
+  const [address, setAddress] = useState('Maloya');
 
 
   //---------------------------------this is error useState----------------------------//
@@ -78,6 +79,7 @@ function AddScreen({ navigation }) {
           placeholder={'Enter Name'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setName(event)}
+          value={addname}
 
 
         />
@@ -92,7 +94,7 @@ function AddScreen({ navigation }) {
           placeholder={'Enter Phone Number '}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setPhone(event)}
-
+          value={addphone}
           keyboardtype={"numeric"}
 
         />
@@ -109,7 +111,7 @@ function AddScreen({ navigation }) {
           placeholder={'Enter age'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setAge(event)}
-
+          value={age}
           keyboardtype={"numeric"}
 
         />
@@ -122,7 +124,7 @@ function AddScreen({ navigation }) {
           placeholderTextColor={colors?.black}
           onchnagetext={event => setRollnumber(event)}
           keyboardtype={"numeric"}
-
+          value={rollnumber}
         />
         {showrollnumber ? (
           <TextComponent
@@ -136,7 +138,7 @@ function AddScreen({ navigation }) {
           placeholder={'Enter Address'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setAddress(event)}
-
+          value={address}
         />
         {showaddress ? (
           <TextComponent name={'Enter Address'} styling={commanstyle.error} />

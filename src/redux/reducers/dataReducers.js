@@ -31,15 +31,7 @@ const datainput = (state = initiallistState, action) => {
         ...state,
         list: newlist
       }
-    case 'Update_Data': {
-      const index = state.list.findIndex((elem) => elem.id !== action.payload); //finding index of the item
-      const newArray = [...state.list]; //making a new array
-      newArray[index].completed = true//changing value in the new array
-      return {
-        ...state, //copying the orignal state
-        list: newArray, //reassingning todos to new array
-      }
-    }
+
     default: return state
 
   }

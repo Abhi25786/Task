@@ -22,7 +22,7 @@ function HomeScreen({ navigation }) {
             <ScrollView>
                 {/* ----------------------------Show Todo List------------------------------------ */}
                 {
-                    list.map((elem) => {
+                    list.map((elem, index) => {
                         return (
 
                             <View style={homecss.mapview} key={elem.id}>
@@ -41,9 +41,10 @@ function HomeScreen({ navigation }) {
                                         <Image source={images.trash} style={{ height: 30, width: 30 }} />
 
                                     </TouchableOpacity>
-                                    <TouchableOpacity >
+                                    <TouchableOpacity onPress={() => navigation.navigate("Update", { paramData: elem })}>
                                         <Image source={images.update} style={{ height: 30, width: 30 }} />
                                     </TouchableOpacity>
+                                    {/* {console.log(elem)} */}
                                 </View>
 
                             </View>
