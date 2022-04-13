@@ -13,7 +13,7 @@ import { images } from '../../asscets/pic';
 import Button from '../../components/Button';
 import TextComponent from '../../components/TextComponent';
 import TextInputComponent from '../../components/TextInput';
-import name from '../../navigation/navigationString';
+import strings from '../../navigation/navigationString';
 import { addData, updateData } from '../../redux/actions/auth';
 import colors from '../../styles/colors';
 import { commanstyle } from '../../styles/styling';
@@ -24,10 +24,10 @@ function AddScreen({ navigation, route }) {
   const id = allData?.id
   console.log(id, "my data")
   // ----------------------------this is inputtext usestate----------------------------//
-  const [addname, setName] = useState(allData?.name ? allData?.name : 'Abhishek');
-  const [addphone, setPhone] = useState(allData?.phone ? allData?.phone : '8872412819');
+  const [name, setName] = useState(allData?.name ? allData?.name : 'Abhishek');
+  const [phone, setPhone] = useState(allData?.phone ? allData?.phone : '8872412819');
   const [age, setAge] = useState(allData?.age ? allData?.age : '21');
-  const [rollnumber, setRollnumber] = useState(allData?.roll ? allData?.roll : '1818');
+  const [roll, setRollnumber] = useState(allData?.roll ? allData?.roll : '1818');
   const [address, setAddress] = useState(allData?.address ? allData?.address : 'Maloya');
 
 
@@ -41,12 +41,12 @@ function AddScreen({ navigation, route }) {
   const dispatch = useDispatch();
 
 
-  let data = { id, addname, addphone, age, rollnumber, address }
+  let data = { id, name, phone, age, roll, address }
   const Click = () => {
 
-    if (addname == '') {
+    if (name == '') {
       setshowName(true);
-    } else if (addphone.length !== 10) {
+    } else if (phone.length !== 10) {
       setshowName(false);
 
       setshowPhone(true);
@@ -54,7 +54,7 @@ function AddScreen({ navigation, route }) {
       setshowPhone(false);
 
       setshowAge(true);
-    } else if (rollnumber === '') {
+    } else if (roll === '') {
       setshowAge(false);
       setshowRollnumber(true);
     } else if (address === '') {
@@ -71,9 +71,9 @@ function AddScreen({ navigation, route }) {
   };
 
   const Update = () => {
-    if (addname == '') {
+    if (name == '') {
       setshowName(true);
-    } else if (addphone.length !== 10) {
+    } else if (phone.length !== 10) {
       setshowName(false);
 
       setshowPhone(true);
@@ -81,7 +81,7 @@ function AddScreen({ navigation, route }) {
       setshowPhone(false);
 
       setshowAge(true);
-    } else if (rollnumber === '') {
+    } else if (roll === '') {
       setshowAge(false);
       setshowRollnumber(true);
     } else if (address === '') {
@@ -106,7 +106,7 @@ function AddScreen({ navigation, route }) {
           placeholder={'Enter Name'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setName(event)}
-          value={addname}
+          value={name}
 
 
         />
@@ -121,8 +121,9 @@ function AddScreen({ navigation, route }) {
           placeholder={'Enter Phone Number '}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setPhone(event)}
-          value={addphone}
+          value={phone}
           keyboardtype={"numeric"}
+          maxLength={10}
 
         />
         {showphone ? (
@@ -151,7 +152,7 @@ function AddScreen({ navigation, route }) {
           placeholderTextColor={colors?.black}
           onchnagetext={event => setRollnumber(event)}
           keyboardtype={"numeric"}
-          value={rollnumber}
+          value={roll}
         />
         {showrollnumber ? (
           <TextComponent
@@ -172,7 +173,7 @@ function AddScreen({ navigation, route }) {
         ) : null}
 
         {/* ---------------------------This is submit button---------------------------- */}
-        <Button name={allData ? name?.Update : name?.Submit} onpress={allData ? Update : Click} stylbtn={addcss.btnview} />
+        <Button name={allData ? strings?.Update : strings?.Submit} onpress={allData ? Update : Click} stylbtn={addcss.btnview} />
       </ScrollView>
     </View>
   );

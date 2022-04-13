@@ -14,10 +14,10 @@ const datainput = (state = initiallistState, action) => {
           ...state.list,
           {
             id: id,
-            name: data.addname,
-            phone: data.addphone,
+            name: data.name,
+            phone: data.phone,
             age: data.age,
-            roll: data.rollnumber,
+            roll: data.roll,
             address: data.address,
 
           },
@@ -38,21 +38,21 @@ const datainput = (state = initiallistState, action) => {
       let data = action.payload
       console.log("Updatedata", data)
 
-      // let editarr = [...state.list]
-      // let update = state.list.findIndex((index) => index.id == data.id);
-      // editarr[update] = data;
+      let editarr = [...state.list]
+      let update = state.list.findIndex((index) => index.id == data.id);
+      editarr[update] = data;
 
-      let updateArry = state.list.map((val, i) => {
-        if (val?.id == data?.id) {
-          return data
-        }
-        return val
-      })
-      console.log("updatearray", updateArry)
+      // let updateArry = state.list.map((val, i) => {
+      //   if (val?.id == data?.id) {
+      //     return data
+      //   }
+      //   return val
+      // })
+      // console.log("updatearray", updateArry)
 
       return {
         ...state,
-        list: updateArry
+        list: editarr
 
       }
     }

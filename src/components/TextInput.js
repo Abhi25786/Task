@@ -12,8 +12,8 @@ const TextInputComponent = ({
     rightImage = false,
     onchnagetext = '',
     keyboardtype,
-    value = ''
-
+    value = '',
+    ...props
 
 }) => {
     return (
@@ -23,7 +23,9 @@ const TextInputComponent = ({
             </View>}
 
             <View style={{ flex: 0.7, alignItems: 'flex-start', marginLeft: 5 }}>
-                <TextInput placeholder={placeholder} placeholderTextColor={placeholderTextColor} style={styles.inputtext} onChangeText={onchnagetext} keyboardType={keyboardtype} value={value} />
+                <TextInput
+                    {...props}
+                    placeholder={placeholder} placeholderTextColor={placeholderTextColor} style={styles.inputtext} onChangeText={onchnagetext} keyboardType={keyboardtype} value={value} />
             </View>
 
             {rightImage && <View style={{ flex: 0.15, alignItems: 'flex-end', backgroundColor: "red" }}>

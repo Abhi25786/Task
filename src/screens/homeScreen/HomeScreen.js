@@ -14,7 +14,7 @@ function HomeScreen({ navigation }) {
     const dispatch = useDispatch()
     const list = useSelector((state) => state.datainput.list)
 
-
+    console.log(list, "list>list");
 
     return (
         <SafeAreaView style={homecss.maincontainer}>
