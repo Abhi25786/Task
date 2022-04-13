@@ -21,7 +21,7 @@ import { Provider } from 'react-redux';
 import Home from './Home';
 import Routes from './src/navigation/Routes';
 import store from './src/redux/store';
-import HomeScreen from './src/screens/homeScreen/HomeScreen';
+
 
 
 

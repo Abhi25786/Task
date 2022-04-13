@@ -2,16 +2,17 @@ import React, { useState } from 'react'
 import { Text, View, SafeAreaView, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native'
 import { useDispatch } from 'react-redux'
 
-import { images } from '../../asscets/pic'
+
 import Buttoncustam from '../../components/Button'
 import Button from '../../components/Button'
 import TextComponent from '../../components/TextComponent'
 import TextInputComponent from '../../components/TextInput'
+import imagePath from '../../constants/imagePath'
 import navigationString from '../../navigation/navigationString'
 import { loginContinue } from '../../redux/actions/auth'
 import colors from '../../styles/colors'
 import { commanstyle } from '../../styles/styling'
-import addcss from '../addScreen/addcss'
+import addcss from '../AddScreen/addcss'
 import styling from './logincss'
 function LoginScreen() {
     const [email, setEmail] = useState('');
@@ -45,7 +46,7 @@ function LoginScreen() {
                 {/* ------------------------------------Email textinput------------------------------------- */}
                 <TextInputComponent
                     leftImage={true}
-                    image={images?.user}
+                    image={imagePath?.user}
                     placeholder={'Enter Email  or Number'}
                     placeholderTextColor={colors?.black}
                     onchnagetext={(event) => setEmail(event)}
@@ -59,7 +60,7 @@ function LoginScreen() {
 
                 <TextInputComponent
                     leftImage={true}
-                    image={images?.password}
+                    image={imagePath?.password}
                     placeholder={'Enter Password '}
                     placeholderTextColor={colors?.black}
                     onchnagetext={(event) => setpassword(event)}

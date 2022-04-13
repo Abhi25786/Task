@@ -2,12 +2,13 @@ import React from 'react'
 import { SafeAreaView, Text, Button, View, TouchableOpacity, Image } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { useSelector, useDispatch } from 'react-redux'
-import { images } from '../../asscets/pic'
+
 import TextComponent from '../../components/TextComponent'
+import imagePath from '../../constants/imagePath'
 import { addData, deleData, updateData } from '../../redux/actions/auth'
 import colors from '../../styles/colors'
 
-import styling from '../loginScreen/logincss'
+import styling from '../LoginScreen/logincss'
 import homecss from './homecss'
 
 function HomeScreen({ navigation }) {
@@ -38,11 +39,11 @@ function HomeScreen({ navigation }) {
                                 <View style={{ flex: 0.1, flexDirection: "column", alignItems: "center", justifyContent: "space-between", paddingVertical: 10 }} >
                                     <TouchableOpacity onPress={() => dispatch(deleData(elem.id))}>
 
-                                        <Image source={images.trash} style={{ height: 30, width: 30, marginRight: 10 }} />
+                                        <Image source={imagePath.trash} style={{ height: 30, width: 30, marginRight: 10 }} />
 
                                     </TouchableOpacity>
                                     <TouchableOpacity onPress={() => navigation.navigate("Add Data", { paramData: elem })}>
-                                        <Image source={images.update} style={{ height: 27, width: 27 }} />
+                                        <Image source={imagePath.update} style={{ height: 27, width: 27 }} />
                                     </TouchableOpacity>
                                     {/* {console.log(elem)} */}
                                 </View>
@@ -57,7 +58,7 @@ function HomeScreen({ navigation }) {
 
                 <View style={{ flexDirection: "row", justifyContent: "flex-end", position: "absolute", right: 0, marginRight: 10, bottom: 0 }}>
 
-                    <Image source={images.Add} style={homecss.addbtn} />
+                    <Image source={imagePath.Add} style={homecss.addbtn} />
                 </View>
 
             </TouchableOpacity>
