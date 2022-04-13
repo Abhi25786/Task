@@ -1,4 +1,4 @@
-const name = {
+const navigationString = {
     Name: "Enter name",
     Update: "Update",
     Emial: "Enter Email",
@@ -8,4 +8,4 @@ const name = {
     Submit: "Submit",
     Both: " Enter email or number"
 }
-export default name
+export default navigationString

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Text,
   View,
@@ -9,10 +9,10 @@ import {
   ScrollView,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { images } from '../../asscets/pic';
 import Button from '../../components/Button';
 import TextComponent from '../../components/TextComponent';
 import TextInputComponent from '../../components/TextInput';
+import imagePath from '../../constants/imagePath';
 import strings from '../../navigation/navigationString';
 import { addData, updateData } from '../../redux/actions/auth';
 import colors from '../../styles/colors';
@@ -23,13 +23,13 @@ function AddScreen({ navigation, route }) {
   const allData = route?.params?.paramData
   const id = allData?.id
   console.log(id, "my data")
-  // ----------------------------this is inputtext usestate----------------------------//
-  const [name, setName] = useState(allData?.name ? allData?.name : 'Abhishek');
-  const [phone, setPhone] = useState(allData?.phone ? allData?.phone : '8872412819');
-  const [age, setAge] = useState(allData?.age ? allData?.age : '21');
-  const [roll, setRollnumber] = useState(allData?.roll ? allData?.roll : '1818');
-  const [address, setAddress] = useState(allData?.address ? allData?.address : 'Maloya');
 
+  // ----------------------------this is inputtext usestate----------------------------//
+  const [name, setName] = useState('Abhishek');
+  const [phone, setPhone] = useState('8872412819');
+  const [age, setAge] = useState('21');
+  const [roll, setRollnumber] = useState('1818');
+  const [address, setAddress] = useState('Maloya');
 
   //---------------------------------this is error useState----------------------------//
   const [showname, setshowName] = useState(false);
@@ -39,6 +39,20 @@ function AddScreen({ navigation, route }) {
   const [showaddress, setshowAddress] = useState(false);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (allData) {
+      setName(allData?.name)
+      setPhone(allData?.phone)
+      setAge(allData?.age)
+      setRollnumber(allData?.roll)
+      setAddress(allData?.address)
+    }
+  }, [allData])
+
+
+
+
 
 
   let data = { id, name, phone, age, roll, address }
@@ -102,7 +116,7 @@ function AddScreen({ navigation, route }) {
         {/* --------------------------------Add todo textinput------------------------------ */}
         <TextInputComponent
           leftImage={true}
-          image={images?.user}
+          image={imagePath?.user}
           placeholder={'Enter Name'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setName(event)}
@@ -117,7 +131,7 @@ function AddScreen({ navigation, route }) {
 
         <TextInputComponent
           leftImage={true}
-          image={images?.phonebok}
+          image={imagePath?.phonebok}
           placeholder={'Enter Phone Number '}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setPhone(event)}
@@ -134,7 +148,7 @@ function AddScreen({ navigation, route }) {
         ) : null}
         <TextInputComponent
           leftImage={false}
-          img={images.Add}
+          img={imagePath.Add}
           rightImage={false}
           placeholder={'Enter age'}
           placeholderTextColor={colors?.black}
@@ -147,7 +161,7 @@ function AddScreen({ navigation, route }) {
           <TextComponent name={'Enter Valid Age'} styling={commanstyle.error} />
         ) : null}
         <TextInputComponent
-          image={images?.address}
+          image={imagePath?.address}
           placeholder={'Enter roll number'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setRollnumber(event)}
@@ -162,7 +176,7 @@ function AddScreen({ navigation, route }) {
         ) : null}
         <TextInputComponent
           leftImage={true}
-          image={images?.address}
+          image={imagePath?.address}
           placeholder={'Enter Address'}
           placeholderTextColor={colors?.black}
           onchnagetext={event => setAddress(event)}

@@ -22,7 +22,7 @@ const TextInputComponent = ({
                 <Image source={image} style={styles.image} />
             </View>}
 
-            <View style={{ flex: 0.7, alignItems: 'flex-start', marginLeft: 5 }}>
+            <View style={{ flex: 0.7, marginLeft: 5 }}>
                 <TextInput
                     {...props}
                     placeholder={placeholder} placeholderTextColor={placeholderTextColor} style={styles.inputtext} onChangeText={onchnagetext} keyboardType={keyboardtype} value={value} />
