@@ -41,7 +41,7 @@ function HomeScreen({ navigation }) {
                                         <Image source={images.trash} style={{ height: 30, width: 30 }} />
 
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => navigation.navigate("Update", { paramData: elem })}>
+                                    <TouchableOpacity onPress={() => navigation.navigate("Add Data", { paramData: elem })}>
                                         <Image source={images.update} style={{ height: 30, width: 30 }} />
                                     </TouchableOpacity>
                                     {/* {console.log(elem)} */}

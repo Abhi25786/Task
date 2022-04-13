@@ -14,19 +14,21 @@ import Button from '../../components/Button';
 import TextComponent from '../../components/TextComponent';
 import TextInputComponent from '../../components/TextInput';
 import name from '../../navigation/navigationString';
-import { addData } from '../../redux/actions/auth';
+import { addData, updateData } from '../../redux/actions/auth';
 import colors from '../../styles/colors';
 import { commanstyle } from '../../styles/styling';
 
 import addcss from './addcss';
-function AddScreen({ navigation }) {
-
+function AddScreen({ navigation, route }) {
+  const allData = route?.params?.paramData
+  const id = allData?.id
+  console.log(id, "my data")
   // ----------------------------this is inputtext usestate----------------------------//
-  const [addname, setName] = useState('Abhishek');
-  const [addphone, setPhone] = useState('8872412819');
-  const [age, setAge] = useState('21');
-  const [rollnumber, setRollnumber] = useState('1818');
-  const [address, setAddress] = useState('Maloya');
+  const [addname, setName] = useState(allData?.name ? allData?.name : 'Abhishek');
+  const [addphone, setPhone] = useState(allData?.phone ? allData?.phone : '8872412819');
+  const [age, setAge] = useState(allData?.age ? allData?.age : '21');
+  const [rollnumber, setRollnumber] = useState(allData?.roll ? allData?.roll : '1818');
+  const [address, setAddress] = useState(allData?.address ? allData?.address : 'Maloya');
 
 
   //---------------------------------this is error useState----------------------------//
@@ -39,7 +41,7 @@ function AddScreen({ navigation }) {
   const dispatch = useDispatch();
 
 
-  const data = { addname, addphone, age, rollnumber, address }
+  let data = { id, addname, addphone, age, rollnumber, address }
   const Click = () => {
 
     if (addname == '') {
@@ -68,6 +70,31 @@ function AddScreen({ navigation }) {
     }
   };
 
+  const Update = () => {
+    if (addname == '') {
+      setshowName(true);
+    } else if (addphone.length !== 10) {
+      setshowName(false);
+
+      setshowPhone(true);
+    } else if (age.length !== 2) {
+      setshowPhone(false);
+
+      setshowAge(true);
+    } else if (rollnumber === '') {
+      setshowAge(false);
+      setshowRollnumber(true);
+    } else if (address === '') {
+      setshowRollnumber(false);
+      setshowAddress(true);
+    }
+    else {
+      setshowAddress(false);
+      console.log("hello", data)
+      dispatch(updateData(data))
+      navigation.navigate('Home')
+    }
+  }
 
   return (
     <View style={addcss.MainContainer}>
@@ -145,7 +172,7 @@ function AddScreen({ navigation }) {
         ) : null}
 
         {/* ---------------------------This is submit button---------------------------- */}
-        <Button name={name?.Submit} onpress={Click} stylbtn={addcss.btnview} />
+        <Button name={allData ? name?.Update : name?.Submit} onpress={allData ? Update : Click} stylbtn={addcss.btnview} />
       </ScrollView>
     </View>
   );

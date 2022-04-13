@@ -1,5 +1,6 @@
 const name = {
     Name: "Enter name",
+    Update: "Update",
     Emial: "Enter Email",
     Number: "Enter Number",
     Password: "Enter Password",
