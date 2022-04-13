@@ -5,5 +5,5 @@ export const images = {
     phonebok: require('../asscets/images/phone-book.png'),
     address: require('../asscets/images/pin.png'),
     trash: require('../asscets/images/delete.png'),
-    update: require('../asscets/images/exchange.png'),
+    update: require('../asscets/images/edit.png'),
 }

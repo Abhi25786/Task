@@ -26,7 +26,7 @@ function HomeScreen({ navigation }) {
                         return (
 
                             <View style={homecss.mapview} key={elem.id}>
-                                <View style={{ flex: 0.8, marginLeft: 10 }} >
+                                <View style={{ flex: 0.9, marginLeft: 10 }} >
                                     <Text style={homecss.textcss}>Name :- {elem.name}</Text>
                                     <Text style={homecss.textcss}>Phone :- {elem.phone}</Text>
                                     <Text style={homecss.textcss}>Age :- {elem.age}</Text>
@@ -35,14 +35,14 @@ function HomeScreen({ navigation }) {
 
 
                                 </View>
-                                <View style={{ flex: 0.2, flexDirection: "column", alignItems: "center", justifyContent: "space-between", paddingVertical: 10 }} >
+                                <View style={{ flex: 0.1, flexDirection: "column", alignItems: "center", justifyContent: "space-between", paddingVertical: 10 }} >
                                     <TouchableOpacity onPress={() => dispatch(deleData(elem.id))}>
 
-                                        <Image source={images.trash} style={{ height: 30, width: 30 }} />
+                                        <Image source={images.trash} style={{ height: 30, width: 30, marginRight: 10 }} />
 
                                     </TouchableOpacity>
                                     <TouchableOpacity onPress={() => navigation.navigate("Add Data", { paramData: elem })}>
-                                        <Image source={images.update} style={{ height: 30, width: 30 }} />
+                                        <Image source={images.update} style={{ height: 27, width: 27 }} />
                                     </TouchableOpacity>
                                     {/* {console.log(elem)} */}
                                 </View>
@@ -51,18 +51,18 @@ function HomeScreen({ navigation }) {
                         )
                     })
                 }
-
-                {/* --------------------------------Add Todo Button------------------------------- */}
-                <TouchableOpacity onPress={() => navigation.navigate("Add Data")}>
-
-                    <View style={{ flexDirection: "row", justifyContent: "flex-end", marginRight: 5 }}>
-
-                        <Image source={images.Add} style={homecss.addbtn} />
-                    </View>
-
-                </TouchableOpacity>
-
             </ScrollView>
+            {/* --------------------------------Add Todo Button------------------------------- */}
+            <TouchableOpacity onPress={() => navigation.navigate("Add Data")}>
+
+                <View style={{ flexDirection: "row", justifyContent: "flex-end", position: "absolute", right: 0, marginRight: 10, bottom: 0 }}>
+
+                    <Image source={images.Add} style={homecss.addbtn} />
+                </View>
+
+            </TouchableOpacity>
+
+
         </SafeAreaView>
     )
 }
