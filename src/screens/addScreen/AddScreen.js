@@ -39,7 +39,7 @@ function AddScreen({ navigation, route }) {
   const [showrollnumber, setshowRollnumber] = useState(false);
   const [showaddress, setshowAddress] = useState(false);
   const list = useSelector((state) => state.datainput.list)
-  console.log('====listdata', list)
+  // console.log('====listdata', list)
 
   const dispatch = useDispatch();
 
@@ -55,8 +55,8 @@ function AddScreen({ navigation, route }) {
   }, [allData])
 
 
-
   let data = [{ userid, id, name, phone, age, roll, address }]
+  // let updatedera = [{ userid, name, phone, age, roll, address }]
   const AddData = () => {
 
     storeData(data);

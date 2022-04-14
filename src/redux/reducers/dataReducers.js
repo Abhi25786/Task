@@ -36,14 +36,13 @@ const datainput = (state = initiallistState, action) => {
     case 'Update_Data': {
 
       let data = action.payload
-      console.log("Updatedata", data)
 
       let editarr = [...state.list]
-      let update = state.list.findIndex((index) => index.id == data.userid);
-      editarr[update] = data;
+      let update = state.list.findIndex((elem) => elem.userid == data.userid);
 
-
-
+      editarr[update] = data
+      console.log("-------------------data", editarr)
+      storeData(editarr)
       return {
         ...state,
         list: editarr

@@ -24,7 +24,7 @@ export const deleData = (id) => {
   };
 };
 export const updateData = (data) => {
-  console.log("updatedata", data)
+
 
   return {
     type: 'Update_Data',
