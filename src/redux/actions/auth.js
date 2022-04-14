@@ -11,13 +11,9 @@ export const logoutContinue = () => {
   };
 };
 export const addData = (data) => {
-
   return {
     type: 'ADD_DATA',
-    payload: {
-      id: Math.floor(Math.random() * 100),
-      data: data,
-    },
+    payload: data
   };
 };
 export const deleData = (id) => {
@@ -28,15 +24,13 @@ export const deleData = (id) => {
   };
 };
 export const updateData = (data) => {
+  console.log("updatedata", data)
 
   return {
     type: 'Update_Data',
     payload: data
 
-    // payload: {
-    //   value: data,
-    //   update: update
-    // }
+
   };
 
 };

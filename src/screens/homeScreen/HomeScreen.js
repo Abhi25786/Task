@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SafeAreaView, Text, Button, View, TouchableOpacity, Image } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { useSelector, useDispatch } from 'react-redux'
@@ -7,6 +7,7 @@ import TextComponent from '../../components/TextComponent'
 import imagePath from '../../constants/imagePath'
 import { addData, deleData, updateData } from '../../redux/actions/auth'
 import colors from '../../styles/colors'
+import { storeData } from '../../utils/utils'
 
 import styling from '../LoginScreen/logincss'
 import homecss from './homecss'
@@ -15,10 +16,12 @@ function HomeScreen({ navigation }) {
     const dispatch = useDispatch()
     const list = useSelector((state) => state.datainput.list)
 
-    console.log(list, "list>list");
 
+
+    storeData(list)
     return (
-        <SafeAreaView style={homecss.maincontainer}>
+
+        < SafeAreaView style={homecss.maincontainer} >
 
             <ScrollView>
                 {/* ----------------------------Show Todo List------------------------------------ */}
@@ -64,7 +67,7 @@ function HomeScreen({ navigation }) {
             </TouchableOpacity>
 
 
-        </SafeAreaView>
+        </SafeAreaView >
     )
 }
 

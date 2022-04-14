@@ -6,7 +6,8 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useEffect } from 'react';
 
 import {
   SafeAreaView,
@@ -16,25 +17,54 @@ import {
   Text,
   useColorScheme,
   View,
+  Button
 } from 'react-native';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import Home from './Home';
 import Routes from './src/navigation/Routes';
 import store from './src/redux/store';
+import { getData, storeData } from './src/utils/utils';
 
 
 
+const { dispatch } = store;
 
 
 const App = () => {
+  // const dispatch = useDispatch();
+  // const list = useSelector((state) => state.datainput.list)
+  // useEffect(() => {
+
+  //   storeData({ name: 'hello' })
+  // }, [])
+
+  // const fetchData = () => {
+  //   getData().then((res) => {
+
+  //     console.log("value", res)
+  //   })
 
 
+  // }
+
+  useEffect(() => {
+    getData().then((res) => {
+      console.log("store data", res)
+      if (!!res) {
+        dispatch({
+          type: 'ADD_DATA',
+          payload: res
+        })
+      }
+    })
+  }, [])
   return (
     <>
       <Provider store={store}>
 
         <Routes />
       </Provider>
+
 
 
     </>

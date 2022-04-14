@@ -49,7 +49,9 @@ function LoginScreen() {
                     image={imagePath?.user}
                     placeholder={'Enter Email  or Number'}
                     placeholderTextColor={colors?.black}
-                    onchnagetext={(event) => setEmail(event)}
+                    value={email}
+                    onchangetext={(event) => setEmail(event)}
+
 
                 />
                 {/* ------------------------------------Show wrong Email------------------------------------- */}
@@ -63,7 +65,8 @@ function LoginScreen() {
                     image={imagePath?.password}
                     placeholder={'Enter Password '}
                     placeholderTextColor={colors?.black}
-                    onchnagetext={(event) => setpassword(event)}
+                    value={password}
+                    onchangetext={(event) => setpassword(event)}
                 />
                 {/* ------------------------------------Show wrong password------------------------------------- */}
 

@@ -8,7 +8,7 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../components/Button';
 import TextComponent from '../../components/TextComponent';
 import TextInputComponent from '../../components/TextInput';
@@ -17,13 +17,14 @@ import strings from '../../navigation/navigationString';
 import { addData, updateData } from '../../redux/actions/auth';
 import colors from '../../styles/colors';
 import { commanstyle } from '../../styles/styling';
+import { getData, storeData } from '../../utils/utils';
 
 import addcss from './addcss';
 function AddScreen({ navigation, route }) {
   const allData = route?.params?.paramData
-  const id = allData?.id
-  console.log(id, "my data")
-
+  const userid = allData?.id
+  console.log(userid, "my data")
+  // const list = useSelector((state) => state.datainput.list)
   // ----------------------------this is inputtext usestate----------------------------//
   const [name, setName] = useState('Abhishek');
   const [phone, setPhone] = useState('8872412819');
@@ -37,9 +38,12 @@ function AddScreen({ navigation, route }) {
   const [showage, setshowAge] = useState(false);
   const [showrollnumber, setshowRollnumber] = useState(false);
   const [showaddress, setshowAddress] = useState(false);
+  const list = useSelector((state) => state.datainput.list)
+  console.log('====listdata', list)
 
   const dispatch = useDispatch();
 
+  const id = Math.floor(Math.random() * 100);
   useEffect(() => {
     if (allData) {
       setName(allData?.name)
@@ -52,11 +56,12 @@ function AddScreen({ navigation, route }) {
 
 
 
+  let data = [{ userid, id, name, phone, age, roll, address }]
+  const AddData = () => {
+
+    storeData(data);
 
 
-
-  let data = { id, name, phone, age, roll, address }
-  const Click = () => {
 
     if (name == '') {
       setshowName(true);
@@ -82,6 +87,8 @@ function AddScreen({ navigation, route }) {
       dispatch(addData(data))
       navigation.navigate('Home')
     }
+    // storeData(list)
+    // console.log('====listdata', list)
   };
 
   const Update = () => {
@@ -119,7 +126,7 @@ function AddScreen({ navigation, route }) {
           image={imagePath?.user}
           placeholder={'Enter Name'}
           placeholderTextColor={colors?.black}
-          onchnagetext={event => setName(event)}
+          onchangetext={event => setName(event)}
           value={name}
 
 
@@ -134,7 +141,7 @@ function AddScreen({ navigation, route }) {
           image={imagePath?.phonebok}
           placeholder={'Enter Phone Number '}
           placeholderTextColor={colors?.black}
-          onchnagetext={event => setPhone(event)}
+          onchangetext={event => setPhone(event)}
           value={phone}
           keyboardtype={"numeric"}
           maxLength={10}
@@ -152,7 +159,7 @@ function AddScreen({ navigation, route }) {
           rightImage={false}
           placeholder={'Enter age'}
           placeholderTextColor={colors?.black}
-          onchnagetext={event => setAge(event)}
+          onchangetext={event => setAge(event)}
           value={age}
           keyboardtype={"numeric"}
 
@@ -164,7 +171,7 @@ function AddScreen({ navigation, route }) {
           image={imagePath?.address}
           placeholder={'Enter roll number'}
           placeholderTextColor={colors?.black}
-          onchnagetext={event => setRollnumber(event)}
+          onchangetext={event => setRollnumber(event)}
           keyboardtype={"numeric"}
           value={roll}
         />
@@ -179,7 +186,7 @@ function AddScreen({ navigation, route }) {
           image={imagePath?.address}
           placeholder={'Enter Address'}
           placeholderTextColor={colors?.black}
-          onchnagetext={event => setAddress(event)}
+          onchangetext={event => setAddress(event)}
           value={address}
         />
         {showaddress ? (
@@ -187,7 +194,7 @@ function AddScreen({ navigation, route }) {
         ) : null}
 
         {/* ---------------------------This is submit button---------------------------- */}
-        <Button name={allData ? strings?.Update : strings?.Submit} onpress={allData ? Update : Click} stylbtn={addcss.btnview} />
+        <Button name={allData ? strings?.Update : strings?.Submit} onpress={allData ? Update : AddData} stylbtn={addcss.btnview} />
       </ScrollView>
     </View>
   );

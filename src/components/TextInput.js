@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, TextInput, Image, button, Text, StyleSheet } from 'react-native'
 import name from '../navigation/navigationString'
-import styling from '../Screens/LoginScreen/logincss'
+import styling from '../screens/LoginScreen/logincss'
 import colors from '../styles/colors'
 const TextInputComponent = ({
     image = '',
@@ -10,7 +10,7 @@ const TextInputComponent = ({
     placeholderTextColor = '',
     leftImage = false,
     rightImage = false,
-    onchnagetext = '',
+    onchangetext,
     keyboardtype,
     value = '',
     ...props
@@ -25,7 +25,7 @@ const TextInputComponent = ({
             <View style={{ flex: 0.7, marginLeft: 5 }}>
                 <TextInput
                     {...props}
-                    placeholder={placeholder} placeholderTextColor={placeholderTextColor} style={styles.inputtext} onChangeText={onchnagetext} keyboardType={keyboardtype} value={value} />
+                    placeholder={placeholder} placeholderTextColor={placeholderTextColor} style={styles.inputtext} keyboardType={keyboardtype} value={value} onChangeText={onchangetext} />
             </View>
 
             {rightImage && <View style={{ flex: 0.15, alignItems: 'flex-end', backgroundColor: "red" }}>

@@ -1,3 +1,4 @@
+import { storeData } from "../../utils/utils";
 
 
 const initiallistState = {
@@ -7,23 +8,22 @@ const datainput = (state = initiallistState, action) => {
   // ----------------------------add action reducer------------------------------//
   switch (action.type) {
     case 'ADD_DATA': {
-      const { id, data } = action.payload;
+      console.log("pyalod data", action.payload)
+      const data = action.payload
+
+
+      let mergeData = [...state.list, ...data]
+
+      storeData(mergeData).then((val) => {
+        console.log("my store data", val)
+      })
       return {
         ...state,
-        list: [
-          ...state.list,
-          {
-            id: id,
-            name: data.name,
-            phone: data.phone,
-            age: data.age,
-            roll: data.roll,
-            address: data.address,
+        list: mergeData,
 
-          },
-        ],
       }
     }
+
     // ----------------------------delete action reducer------------------------------//
     case 'DELETE_DATA': {
 
@@ -39,16 +39,10 @@ const datainput = (state = initiallistState, action) => {
       console.log("Updatedata", data)
 
       let editarr = [...state.list]
-      let update = state.list.findIndex((index) => index.id == data.id);
+      let update = state.list.findIndex((index) => index.id == data.userid);
       editarr[update] = data;
 
-      // let updateArry = state.list.map((val, i) => {
-      //   if (val?.id == data?.id) {
-      //     return data
-      //   }
-      //   return val
-      // })
-      // console.log("updatearray", updateArry)
+
 
       return {
         ...state,

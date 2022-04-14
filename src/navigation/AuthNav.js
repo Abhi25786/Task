@@ -2,7 +2,7 @@ import React from 'react';
 // import { useSelector } from 'react-redux';
 
 
-import LoginScreen from '../Screens/LoginScreen/LoginScreen';
+import LoginScreen from '../screens/LoginScreen/LoginScreen';
 
 // import navigationStrings from './navigationStrings';
 
