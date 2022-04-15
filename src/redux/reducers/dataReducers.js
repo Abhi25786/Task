@@ -27,10 +27,17 @@ const datainput = (state = initiallistState, action) => {
     // ----------------------------delete action reducer------------------------------//
     case 'DELETE_DATA': {
 
-      const newlist = state.list.filter((elem) => elem.userId !== action.userId)
+      const newList1 = [...state.list]
+      const index = state.list.findIndex((items) => items.userId === action.userId)
+      if (index >= 0) {
+        newList1.splice(index, 1)
+      }
+      storeData(newList1).then((val) => {
+        console.log("delete store data", val)
+      })
       return {
         ...state,
-        list: newlist
+        list: newList1
       }
     }
     case 'Update_Data': {
