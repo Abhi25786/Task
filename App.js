@@ -30,7 +30,6 @@ import { getData, getLogin, storeData } from './src/utils/utils';
 
 const { dispatch } = store;
 
-
 const App = () => {
   // const dispatch = useDispatch();
   // const list = useSelector((state) => state.datainput.list)

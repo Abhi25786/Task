@@ -9,8 +9,8 @@ import { addData, deleData, logoutContinue, updateData } from '../../redux/actio
 import colors from '../../styles/colors'
 import { storeData } from '../../utils/utils'
 
-import styling from '../LoginScreen/logincss'
-import homecss from './homecss'
+
+import homecss from './style'
 
 function HomeScreen({ navigation }) {
     const dispatch = useDispatch()

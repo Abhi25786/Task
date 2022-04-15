@@ -20,7 +20,7 @@ import colors from '../../styles/colors';
 import { commanstyle } from '../../styles/styling';
 import { getData, storeData } from '../../utils/utils';
 
-import addcss from './addcss';
+import addcss from './style';
 function AddScreen({ navigation, route }) {
   const allData = route?.params?.elem
   // const userid = allData?.id

@@ -13,8 +13,8 @@ import navigationString from '../../navigation/navigationString'
 import { loginContinue } from '../../redux/actions/auth'
 import colors from '../../styles/colors'
 import { commanstyle } from '../../styles/styling'
-import addcss from '../AddScreen/addcss'
-import styling from './logincss'
+import addcss from '../AddScreen/style'
+import styling from './style'
 function LoginScreen() {
     const [email, setEmail] = useState('');
     const [password, setpassword] = useState('');
