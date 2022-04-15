@@ -21,12 +21,12 @@ export const getData = async () => {
         // error reading value
     }
 }
-export const storeLogin = async (loginvalue) => {
-    // console.log(loginvalue, 'store>my>data')
+export const storeLogin = async (data) => {
+    console.log(data, '------------store>my>data')
     try {
-        const jsonValue = JSON.stringify(loginvalue)
+        let jsonValue = JSON.stringify(data)
         await AsyncStorage.setItem('LoginData', jsonValue)
-        // console.log(data, 'store my data')
+        console.log(jsonValue, 'store my data')
         return { jsonValue }
     } catch (e) {
         // saving error
@@ -36,12 +36,23 @@ export const storeLogin = async (loginvalue) => {
 export const getLogin = async () => {
     try {
         const value = await AsyncStorage.getItem('LoginData')
-        return jsonValue != null ? JSON.parse(value) : null;
+        let jsonValue = JSON.parse(value)
+        console.log(jsonValue, 'get------data')
+        return jsonValue
     } catch (e) {
         // error reading value
-        console.log("login_data get error")
     }
 }
+
+// export const getLogin = async () => {
+//     try {
+//         const value = await AsyncStorage.getItem('LoginData')
+//         return jsonValue != null ? JSON.parse(value) : null;
+//     } catch (e) {
+//         // error reading value
+//         console.log("login_data get error")
+//     }
+// }
 export const LogoutData = async () => {
     try {
         await AsyncStorage.removeItem('LoginData')
