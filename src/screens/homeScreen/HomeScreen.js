@@ -63,7 +63,7 @@ function HomeScreen({ navigation }) {
             {/* --------------------------------Add Todo Button------------------------------- */}
             <TouchableOpacity onPress={() => navigation.navigate("Add Data")}>
 
-                <View style={{ flexDirection: "row", justifyContent: "flex-end", position: "absolute", right: 0, marginRight: 10, bottom: 0 }}>
+                <View style={{ flexDirection: "row", justifyContent: "flex-end", position: "absolute", right: 0, marginRight: 10, bottom: 10 }}>
 
                     <Image source={imagePath.Add} style={homecss.addbtn} />
                 </View>

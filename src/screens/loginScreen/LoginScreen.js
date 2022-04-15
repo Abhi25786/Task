@@ -77,6 +77,9 @@ function LoginScreen() {
 
                 {/* ------------------------------------Login Button------------------------------------- */}
                 <Buttoncustam name='Login' onpress={Click} stylbtn={addcss.btnview} />
+                {
+                    showpassword ? <TextComponent name={'Password  must contain Upper and lower \n alphabet & numerical letters'} styling={commanstyle.error} /> : null
+                }
             </ScrollView>
         </View>
 
