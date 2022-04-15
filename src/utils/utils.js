@@ -42,3 +42,10 @@ export const getLogin = async () => {
         console.log("login_data get error")
     }
 }
+export const LogoutData = async () => {
+    try {
+        await AsyncStorage.removeItem('LoginData')
+    } catch (error) {
+
+    }
+}

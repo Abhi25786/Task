@@ -14,7 +14,7 @@ const Stack = createStackNavigator();
 
 export default function Routes() {
 
-    const data = useSelector(state => state.Continue)
+    const data = useSelector(state => state.Continue.userdata)
     return (
 
         <NavigationContainer>

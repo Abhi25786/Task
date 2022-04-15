@@ -1,4 +1,4 @@
-import storeLogin from "../../utils/utils";
+import { storeLogin, getLogin, LogoutData } from "../../utils/utils";
 import types from "../types";
 const initialState = {
     userdata: {}
@@ -12,7 +12,12 @@ export const Continue = (state = initialState, action) => {
             storeLogin(data)
             return { userdata: data };
         }
-        case types.USER_LOGOUT: { return state = false; }
+        case types.USER_LOGOUT: {
+
+            LogoutData();
+
+            return { userdata: undefined }
+        }
         default: return state;
     }
 

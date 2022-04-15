@@ -52,12 +52,12 @@ const App = () => {
   useEffect(() => {
     getLogin().then((res) => {
       console.log("store data", res)
-      if (!!res) {
-        dispatch({
-          type: types.LOGIN,
-          payload: res
-        })
-      }
+
+      dispatch({
+        type: types.LOGIN,
+        payload: res
+      })
+
     })
     getData().then((res) => {
       console.log("store data", res)
@@ -71,6 +71,7 @@ const App = () => {
   }, [])
   return (
     <>
+      <StatusBar barStyle='dark-content' backgroundColor={"white"} />
       <Provider store={store}>
 
         <Routes />

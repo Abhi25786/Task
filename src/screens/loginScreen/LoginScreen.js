@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Text, View, SafeAreaView, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native'
+import { Text, View, SafeAreaView, TouchableOpacity, TextInput, Image, ScrollView, StatusBar } from 'react-native'
 import { useDispatch } from 'react-redux'
 
 
 import Buttoncustam from '../../components/Button'
 import Button from '../../components/Button'
+import HeadComponent from '../../components/HeadComponent'
 import TextComponent from '../../components/TextComponent'
 import TextInputComponent from '../../components/TextInput'
 import imagePath from '../../constants/imagePath'
@@ -43,7 +44,9 @@ function LoginScreen() {
     }
     return (
 
+
         <View style={addcss.MainContainer}>
+            <HeadComponent Title='Login' />
             <ScrollView>
                 {/* ------------------------------------Email textinput------------------------------------- */}
                 <TextInputComponent

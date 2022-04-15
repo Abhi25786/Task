@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../components/Button';
+import HeadComponent from '../../components/HeadComponent';
 import TextComponent from '../../components/TextComponent';
 import TextInputComponent from '../../components/TextInput';
 import imagePath from '../../constants/imagePath';
@@ -83,7 +84,7 @@ function AddScreen({ navigation, route }) {
     }
     else {
       setshowAddress(false);
-      dispatch(updateData(({ id: allData.userId, name, phone, address, age, roll })))
+      dispatch(updateData({ id: allData.userId, name, phone, address, age, roll }))
       navigation.navigate('Home')
     }
   }
@@ -123,6 +124,7 @@ function AddScreen({ navigation, route }) {
 
   return (
     <View style={addcss.MainContainer}>
+      <HeadComponent Title={allData ? strings?.Update : strings?.Submit} />
       <ScrollView>
         {/* --------------------------------Add todo textinput------------------------------ */}
         <TextInputComponent
