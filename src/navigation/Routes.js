@@ -19,7 +19,7 @@ export default function Routes() {
 
         <NavigationContainer>
             <Stack.Navigator>
-                {data ? HomeNav(Stack) : AuthNav(Stack)}
+                {true ? HomeNav(Stack) : AuthNav(Stack)}
             </Stack.Navigator>
         </NavigationContainer>
     );

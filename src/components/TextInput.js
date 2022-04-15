@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, TextInput, Image, button, Text, StyleSheet } from 'react-native'
 import name from '../navigation/navigationString'
-import styling from '../screens/LoginScreen/logincss'
+
 import colors from '../styles/colors'
 const TextInputComponent = ({
     image = '',
