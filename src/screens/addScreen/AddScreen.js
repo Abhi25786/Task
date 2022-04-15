@@ -23,9 +23,7 @@ import { getData, storeData } from '../../utils/utils';
 import addcss from './style';
 function AddScreen({ navigation, route }) {
   const allData = route?.params?.elem
-  // const userid = allData?.id
-  // console.log(userid, "---------my show id data")
-  // const list = useSelector((state) => state.datainput.list)
+
   // ----------------------------this is inputtext usestate----------------------------//
   const [name, setName] = useState('Abhishek');
   const [phone, setPhone] = useState('8872412819');
@@ -42,7 +40,7 @@ function AddScreen({ navigation, route }) {
   const list = useSelector((state) => state.datainput.list)
   // console.log('====listdata', list)
 
-  const dispatch = useDispatch();
+
 
   const userId = Math.floor(Math.random() * 1000);
 
@@ -84,7 +82,7 @@ function AddScreen({ navigation, route }) {
     }
     else {
       setshowAddress(false);
-      dispatch(updateData({ id: allData.userId, name, phone, address, age, roll }))
+      updateData({ id: allData.userId, name, phone, address, age, roll })
       navigation.navigate('Home')
     }
   }
@@ -113,7 +111,7 @@ function AddScreen({ navigation, route }) {
       setshowAddress(false);
 
       console.log('good');
-      dispatch(addData([{ userId, name, phone, address, age, roll }]))
+      addData([{ userId, name, phone, address, age, roll }])
       navigation.navigate('Home')
     }
     // storeData(list)

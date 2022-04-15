@@ -13,12 +13,12 @@ import { storeData } from '../../utils/utils'
 import homecss from './style'
 
 function HomeScreen({ navigation }) {
-    const dispatch = useDispatch()
+
     const list = useSelector((state) => state.datainput.list)
 
 
     const Logout = () => {
-        dispatch(logoutContinue())
+        logoutContinue()
     }
     storeData(list)
     return (
@@ -50,7 +50,7 @@ function HomeScreen({ navigation }) {
 
                                 </View>
                                 <View style={{ flex: 0.1, flexDirection: "column", alignItems: "center", justifyContent: "space-between", paddingVertical: 10 }} >
-                                    <TouchableOpacity onPress={() => dispatch(deleData(elem.userId))}>
+                                    <TouchableOpacity onPress={() => deleData(elem.userId)}>
 
                                         <Image source={imagePath.trash} style={{ height: 30, width: 30, marginRight: 10 }} />
 

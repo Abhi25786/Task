@@ -23,7 +23,7 @@ function LoginScreen() {
 
     const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
 
-    const dispatch = useDispatch()
+
 
     const data = { email, password }
     // --------------------------------Login button function-----------------------------//
@@ -34,7 +34,7 @@ function LoginScreen() {
             setShow(true)
         } else if (strongRegex.test(password)) {
             console.log('mylogin----', data)
-            dispatch(loginContinue(data))
+            loginContinue(data)
         } else {
             setShow(false)
             setShowpassword(true)
