@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import colors from '../../styles/colors'
+import { moderateScale, moderateScaleVertical } from '../../styles/responsiveSize'
 
 const addcss = StyleSheet.create
     ({
@@ -8,15 +9,15 @@ const addcss = StyleSheet.create
             backgroundColor: colors.white
         },
         image: {
-            height: 30,
-            width: 30,
+            height: moderateScale(30),
+            width: moderateScale(30),
             margin: 5,
 
         },
         viewcss: {
             flexDirection: "row",
             marginHorizontal: 5,
-            marginVertical: 10,
+            marginVertical: moderateScaleVertical(10),
             alignItems: "center",
             borderColor: colors.lightGreyBg,
             borderWidth: 2,
@@ -26,8 +27,8 @@ const addcss = StyleSheet.create
         },
         inputtext: {
             flex: 0.9,
-            paddingVertical: 10,
-            paddingLeft: 10
+            paddingVertical: moderateScaleVertical(10),
+            paddingLeft: moderateScale(10)
         },
         btnview: {
             alignItems: "center",

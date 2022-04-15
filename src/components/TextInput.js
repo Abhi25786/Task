@@ -3,6 +3,7 @@ import { View, TextInput, Image, button, Text, StyleSheet } from 'react-native'
 import name from '../navigation/navigationString'
 
 import colors from '../styles/colors'
+import { moderateScale, moderateScaleVertical } from '../styles/responsiveSize'
 const TextInputComponent = ({
     image = '',
     img = '',
@@ -22,13 +23,13 @@ const TextInputComponent = ({
                 <Image source={image} style={styles.image} />
             </View>}
 
-            <View style={{ flex: 0.7, marginLeft: 5 }}>
+            <View style={{ flex: 0.7, marginLeft: moderateScale(5) }}>
                 <TextInput
                     {...props}
                     placeholder={placeholder} placeholderTextColor={placeholderTextColor} style={styles.inputtext} keyboardType={keyboardtype} value={value} onChangeText={onchangetext} />
             </View>
 
-            {rightImage && <View style={{ flex: 0.15, alignItems: 'flex-end', backgroundColor: "red" }}>
+            {rightImage && <View style={{ flex: 0.15, alignItems: 'flex-end'}}>
                 <Image source={img} style={styles.image} />
             </View>}
 
@@ -41,15 +42,15 @@ const TextInputComponent = ({
 const styles = StyleSheet.create({
 
     image: {
-        height: 30,
-        width: 30,
-        margin: 5,
+        height: moderateScale(30),
+        width: moderateScale(30),
+        margin: moderateScale(5),
 
     },
     viewcss: {
         flexDirection: "row",
-        marginHorizontal: 10,
-        marginVertical: 10,
+        marginHorizontal: moderateScale(10),
+        marginVertical: moderateScaleVertical(10),
         alignItems: "center",
         borderColor: colors.lightGreyBg,
         borderWidth: 1,
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     },
     inputtext: {
 
-        paddingVertical: 10,
+        paddingVertical: moderateScaleVertical(10),
 
     },
 

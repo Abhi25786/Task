@@ -7,6 +7,7 @@ import TextComponent from '../../components/TextComponent'
 import imagePath from '../../constants/imagePath'
 import { addData, deleData, logoutContinue, updateData } from '../../redux/actions/auth'
 import colors from '../../styles/colors'
+import { moderateScale, textScale } from '../../styles/responsiveSize'
 import { storeData } from '../../utils/utils'
 
 
@@ -26,9 +27,9 @@ function HomeScreen({ navigation }) {
         < SafeAreaView style={homecss.maincontainer} >
 
             <View style={{ justifyContent: "space-between", flexDirection: "row" }}>
-                <TextComponent styling={{ color: "black", fontSize: 20 }} name={'Home'} />
+                <TextComponent styling={{ color: colors.black, fontSize: textScale(20) }} name={'Home'} />
                 <TouchableOpacity onPress={Logout}>
-                    <TextComponent styling={{ color: "black", fontSize: 20 }} name={'Logout'} />
+                    <TextComponent styling={{ color: colors.black, fontSize: textScale(20) }} name={'Logout'} />
                 </TouchableOpacity>
             </View>
 
@@ -40,7 +41,7 @@ function HomeScreen({ navigation }) {
                         return (
 
                             <View style={homecss.mapview} key={elem.userId}>
-                                <View style={{ flex: 0.9, marginLeft: 10 }} >
+                                <View style={{ flex: 0.9, marginLeft: moderateScale(10)}} >
                                     <Text style={homecss.textcss}>Name :- {elem.name}</Text>
                                     <Text style={homecss.textcss}>Phone :- {elem.phone}</Text>
                                     <Text style={homecss.textcss}>Age :- {elem.age}</Text>
