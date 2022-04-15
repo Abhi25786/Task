@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, button, Text, TouchableOpacity } from 'react-native'
 import name from '../navigation/navigationString'
-import styling from '../screens/LoginScreen/logincss'
+import styling from '../Screens/LoginScreen/logincss'
 function Buttoncustam({
     name = '',
     onpress = '',

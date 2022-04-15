@@ -3,8 +3,8 @@ import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack'
 
-import HomeScreen from '../screens/HomeScreen/HomeScreen';
-import AddScreen from '../screens/AddScreen/AddScreen';
+import HomeScreen from '../Screens/HomeScreen/HomeScreen';
+import AddScreen from '../Screens/AddScreen/AddScreen';
 
 
 
