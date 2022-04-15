@@ -27,7 +27,7 @@ const datainput = (state = initiallistState, action) => {
     // ----------------------------delete action reducer------------------------------//
     case 'DELETE_DATA': {
 
-      const newlist = state.list.filter((elem) => elem.id !== action.id)
+      const newlist = state.list.filter((elem) => elem.userId !== action.userId)
       return {
         ...state,
         list: newlist
@@ -36,16 +36,20 @@ const datainput = (state = initiallistState, action) => {
     case 'Update_Data': {
 
       let data = action.payload
+      console.log("---my id--------sdsdv", data)
 
-      let editarr = [...state.list]
-      let update = state.list.findIndex((elem) => elem.userid == data.userid);
+      let editArr = [...state.list]
+      let editUserIndex = state.list.findIndex((elem) => elem.userId === data.id);
 
-      editarr[update] = data
-      console.log("-------------------data", editarr)
-      storeData(editarr)
+
+      editArr[editUserIndex] = data
+      console.log("update id=====", editUserIndex)
+      storeData(editArr).then((val) => {
+        console.log("my store data", val)
+      })
       return {
         ...state,
-        list: editarr
+        list: editArr
 
       }
     }

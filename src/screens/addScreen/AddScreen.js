@@ -21,9 +21,9 @@ import { getData, storeData } from '../../utils/utils';
 
 import addcss from './addcss';
 function AddScreen({ navigation, route }) {
-  const allData = route?.params?.paramData
-  const userid = allData?.id
-  console.log(userid, "my data")
+  const allData = route?.params?.elem
+  // const userid = allData?.id
+  // console.log(userid, "---------my show id data")
   // const list = useSelector((state) => state.datainput.list)
   // ----------------------------this is inputtext usestate----------------------------//
   const [name, setName] = useState('Abhishek');
@@ -43,7 +43,10 @@ function AddScreen({ navigation, route }) {
 
   const dispatch = useDispatch();
 
-  const id = Math.floor(Math.random() * 100);
+  const userId = Math.floor(Math.random() * 1000);
+
+
+
   useEffect(() => {
     if (allData) {
       setName(allData?.name)
@@ -55,12 +58,37 @@ function AddScreen({ navigation, route }) {
   }, [allData])
 
 
-  let data = [{ userid, id, name, phone, age, roll, address }]
-  // let updatedera = [{ userid, name, phone, age, roll, address }]
+
+
+
+
+
+  const Update = () => {
+    if (name == '') {
+      setshowName(true);
+    } else if (phone.length !== 10) {
+      setshowName(false);
+
+      setshowPhone(true);
+    } else if (age.length !== 2) {
+      setshowPhone(false);
+
+      setshowAge(true);
+    } else if (roll === '') {
+      setshowAge(false);
+      setshowRollnumber(true);
+    } else if (address === '') {
+      setshowRollnumber(false);
+      setshowAddress(true);
+    }
+    else {
+      setshowAddress(false);
+      dispatch(updateData(({ id: allData.userId, name, phone, address, age, roll })))
+      navigation.navigate('Home')
+    }
+  }
+
   const AddData = () => {
-
-    storeData(data);
-
 
 
     if (name == '') {
@@ -84,38 +112,14 @@ function AddScreen({ navigation, route }) {
       setshowAddress(false);
 
       console.log('good');
-      dispatch(addData(data))
+      dispatch(addData([{ userId, name, phone, address, age, roll }]))
       navigation.navigate('Home')
     }
     // storeData(list)
     // console.log('====listdata', list)
   };
 
-  const Update = () => {
-    if (name == '') {
-      setshowName(true);
-    } else if (phone.length !== 10) {
-      setshowName(false);
 
-      setshowPhone(true);
-    } else if (age.length !== 2) {
-      setshowPhone(false);
-
-      setshowAge(true);
-    } else if (roll === '') {
-      setshowAge(false);
-      setshowRollnumber(true);
-    } else if (address === '') {
-      setshowRollnumber(false);
-      setshowAddress(true);
-    }
-    else {
-      setshowAddress(false);
-      console.log("hello", data)
-      dispatch(updateData(data))
-      navigation.navigate('Home')
-    }
-  }
 
   return (
     <View style={addcss.MainContainer}>

@@ -27,9 +27,10 @@ function HomeScreen({ navigation }) {
                 {/* ----------------------------Show Todo List------------------------------------ */}
                 {
                     list.map((elem, index) => {
+                        // console.log(elem, "show data----")
                         return (
 
-                            <View style={homecss.mapview} key={elem.id}>
+                            <View style={homecss.mapview} key={elem.userId}>
                                 <View style={{ flex: 0.9, marginLeft: 10 }} >
                                     <Text style={homecss.textcss}>Name :- {elem.name}</Text>
                                     <Text style={homecss.textcss}>Phone :- {elem.phone}</Text>
@@ -40,20 +41,23 @@ function HomeScreen({ navigation }) {
 
                                 </View>
                                 <View style={{ flex: 0.1, flexDirection: "column", alignItems: "center", justifyContent: "space-between", paddingVertical: 10 }} >
-                                    <TouchableOpacity onPress={() => dispatch(deleData(elem.id))}>
+                                    <TouchableOpacity onPress={() => dispatch(deleData(elem.userId))}>
 
                                         <Image source={imagePath.trash} style={{ height: 30, width: 30, marginRight: 10 }} />
 
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => navigation.navigate("Add Data", { paramData: elem })}>
+                                    <TouchableOpacity onPress={() => navigation.navigate("Add Data", { elem })}>
                                         <Image source={imagePath.update} style={{ height: 27, width: 27 }} />
                                     </TouchableOpacity>
+
                                     {/* {console.log(elem)} */}
                                 </View>
 
                             </View>
                         )
+
                     })
+
                 }
             </ScrollView>
             {/* --------------------------------Add Todo Button------------------------------- */}

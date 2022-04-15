@@ -10,21 +10,20 @@ export const logoutContinue = () => {
     type: types.USER_LOGOUT,
   };
 };
-export const addData = (data) => {
+export const addData = (res) => {
   return {
     type: 'ADD_DATA',
-    payload: data
+    payload: res
   };
 };
-export const deleData = (id) => {
+export const deleData = (userId) => {
   return {
     type: 'DELETE_DATA',
-    id
+    userId
 
   };
 };
 export const updateData = (data) => {
-
 
   return {
     type: 'Update_Data',
