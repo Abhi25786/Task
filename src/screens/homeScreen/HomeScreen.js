@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import TextComponent from '../../components/TextComponent'
 import imagePath from '../../constants/imagePath'
-import { addData, deleData, updateData } from '../../redux/actions/auth'
+import { addData, deleData, logoutContinue, updateData } from '../../redux/actions/auth'
 import colors from '../../styles/colors'
 import { storeData } from '../../utils/utils'
 
@@ -17,11 +17,20 @@ function HomeScreen({ navigation }) {
     const list = useSelector((state) => state.datainput.list)
 
 
-
+    const Logout = () => {
+        dispatch(logoutContinue())
+    }
     storeData(list)
     return (
 
         < SafeAreaView style={homecss.maincontainer} >
+
+            <View style={{ justifyContent: "space-between", flexDirection: "row" }}>
+                <TextComponent styling={{ color: "black", fontSize: 20 }} name={'Home'} />
+                <TouchableOpacity onPress={Logout}>
+                    <TextComponent styling={{ color: "black", fontSize: 20 }} name={'Logout'} />
+                </TouchableOpacity>
+            </View>
 
             <ScrollView>
                 {/* ----------------------------Show Todo List------------------------------------ */}
@@ -69,6 +78,9 @@ function HomeScreen({ navigation }) {
                 </View>
 
             </TouchableOpacity>
+
+
+
 
 
         </SafeAreaView >

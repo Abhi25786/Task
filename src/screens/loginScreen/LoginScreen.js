@@ -24,6 +24,7 @@ function LoginScreen() {
 
     const dispatch = useDispatch()
 
+    const data = { email, password }
     // --------------------------------Login button function-----------------------------//
     const Click = () => {
 
@@ -31,7 +32,8 @@ function LoginScreen() {
         if (email.length < 10) {
             setShow(true)
         } else if (strongRegex.test(password)) {
-            dispatch(loginContinue())
+            console.log('mylogin----', data)
+            dispatch(loginContinue(data))
         } else {
             setShow(false)
             setShowpassword(true)

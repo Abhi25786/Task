@@ -14,7 +14,7 @@ export default function (Stack) {
     return (
         <>
 
-            <Stack.Screen name="Home" component={HomeScreen} options={{ gestureEnable: true, gestureDirection: 'horizontal' }} />
+            <Stack.Screen name="Home" component={HomeScreen} screenOptions={{ headerShown: false }} />
             <Stack.Screen name="Add Data" component={AddScreen} />
 
         </>

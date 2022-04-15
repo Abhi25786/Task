@@ -23,7 +23,8 @@ import { Provider, useDispatch, useSelector } from 'react-redux';
 import Home from './Home';
 import Routes from './src/navigation/Routes';
 import store from './src/redux/store';
-import { getData, storeData } from './src/utils/utils';
+import types from './src/redux/types';
+import { getData, getLogin, storeData } from './src/utils/utils';
 
 
 
@@ -47,7 +48,17 @@ const App = () => {
 
   // }
 
+
   useEffect(() => {
+    getLogin().then((res) => {
+      console.log("store data", res)
+      if (!!res) {
+        dispatch({
+          type: types.LOGIN,
+          payload: res
+        })
+      }
+    })
     getData().then((res) => {
       console.log("store data", res)
       if (!!res) {

@@ -21,3 +21,24 @@ export const getData = async () => {
         // error reading value
     }
 }
+export const storeLogin = async (loginvalue) => {
+    // console.log(loginvalue, 'store>my>data')
+    try {
+        const jsonValue = JSON.stringify(loginvalue)
+        await AsyncStorage.setItem('LoginData', jsonValue)
+        // console.log(data, 'store my data')
+        return { jsonValue }
+    } catch (e) {
+        // saving error
+        console.log("error rasied to store data")
+    }
+}
+export const getLogin = async () => {
+    try {
+        const value = await AsyncStorage.getItem('LoginData')
+        return jsonValue != null ? JSON.parse(value) : null;
+    } catch (e) {
+        // error reading value
+        console.log("login_data get error")
+    }
+}
