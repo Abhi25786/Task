@@ -121,7 +121,7 @@ function AddScreen({ navigation, route }) {
 
 
   return (
-    <View style={addcss.MainContainer}>
+    <SafeAreaView style={addcss.MainContainer}>
       <HeadComponent Title={allData ? strings?.Update : strings?.Submit} />
       <ScrollView>
         {/* --------------------------------Add todo textinput------------------------------ */}
@@ -200,7 +200,7 @@ function AddScreen({ navigation, route }) {
         {/* ---------------------------This is submit button---------------------------- */}
         <Button name={allData ? strings?.Update : strings?.Submit} onpress={allData ? Update : AddData} stylbtn={addcss.btnview} />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 

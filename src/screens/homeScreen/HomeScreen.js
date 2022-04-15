@@ -21,7 +21,7 @@ function HomeScreen({ navigation }) {
     const Logout = () => {
         logoutContinue()
     }
-    storeData(list)
+    // storeData(list)
     return (
 
         < SafeAreaView style={homecss.maincontainer} >

@@ -44,8 +44,10 @@ function LoginScreen() {
     }
     return (
 
+<SafeAreaView  style={addcss.MainContainer}>
 
-        <View style={addcss.MainContainer}>
+
+        <View>
             <HeadComponent Title='Login' />
             <ScrollView>
                 {/* ------------------------------------Email textinput------------------------------------- */}
@@ -87,6 +89,7 @@ function LoginScreen() {
                 }
             </ScrollView>
         </View>
+        </SafeAreaView>
 
     )
 }
