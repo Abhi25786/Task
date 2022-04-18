@@ -1,15 +1,31 @@
-import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native';
+import React, {useState} from 'react';
+import {
+  SafeAreaView,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+  View,
+  Text,
+} from 'react-native';
 import RNRestart from 'react-native-restart';
 import Buttoncustam from '../../components/Button';
 import HeadComponent from '../../components/HeadComponent';
 import TextComponent from '../../components/TextComponent';
 import TextInputComponent from '../../components/TextInput';
 import imagePath from '../../constants/imagePath';
-import { changeLaguage, default as langstring, default as strings } from '../../constants/lang';
-import { loginContinue } from '../../redux/actions/auth';
+import {
+  changeLaguage,
+  default as langstring,
+  default as strings,
+} from '../../constants/lang';
+import {loginContinue} from '../../redux/actions/auth';
 import colors from '../../styles/colors';
-import { commanstyle } from '../../styles/styling';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  textScale,
+} from '../../styles/responsiveSize';
+import {commanstyle} from '../../styles/styling';
 import addcss from '../AddScreen/style';
 import style from './style';
 
@@ -91,6 +107,46 @@ function LoginScreen() {
               styling={commanstyle.error}
             />
           ) : null}
+
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              marginTop: moderateScaleVertical(10),
+            }}>
+            <View
+              style={{
+              borderWidth:0.5,
+              borderRadius:5,
+                flex: 0.4,
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingVertical: moderateScaleVertical(5),
+              }}>
+              <Image
+                source={imagePath.Google}
+                style={{height: moderateScale(30), width: moderateScale(30)}}
+              />
+              <Text style={{color: 'lightblue', fontSize: textScale(20)}}>
+                oogle
+              </Text>
+            </View>
+            <View
+              style={{
+                backgroundColor: '#4267B2',
+                flex: 0.4,
+                alignItems: 'center',
+                borderRadius:5,
+                justifyContent: 'center',
+              }}>
+              <Text style={{color: 'white', fontSize: textScale(20)}}>
+                facebook
+              </Text>
+            </View>
+          </View>
+
+          {/* ---------------------------Language section-------------------- */}
           <TouchableOpacity onPress={() => onChangeLng('hn')}>
             <TextComponent name={'हिन्दी'} styling={style.languagetext} />
           </TouchableOpacity>

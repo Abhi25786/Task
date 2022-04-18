@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import colors from '../styles/colors';
+// import fontFamily from '../styles/fontfamily';
 import fontfamily from '../styles/fontFamily';
 import {moderateScale, textScale} from '../styles/responsiveSize';
 
