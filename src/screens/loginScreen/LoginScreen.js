@@ -1,21 +1,22 @@
 import React, { useState } from 'react'
-import { Text, View, SafeAreaView, TouchableOpacity, TextInput, Image, ScrollView, StatusBar } from 'react-native'
-import { useDispatch } from 'react-redux'
-
-
+import { SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native'
+import RNRestart from 'react-native-restart'
 import Buttoncustam from '../../components/Button'
-import Button from '../../components/Button'
 import HeadComponent from '../../components/HeadComponent'
 import TextComponent from '../../components/TextComponent'
 import TextInputComponent from '../../components/TextInput'
 import imagePath from '../../constants/imagePath'
-import navigationString from '../../navigation/navigationString'
+import langstring from '../../constants/lang'
+import strings, { changeLaguage } from '../../constants/lang'
 import { loginContinue } from '../../redux/actions/auth'
 import colors from '../../styles/colors'
 import { commanstyle } from '../../styles/styling'
 import addcss from '../AddScreen/style'
-import styling from './style'
+
+
+
 function LoginScreen() {
+
     const [email, setEmail] = useState('');
     const [password, setpassword] = useState('');
     const [show, setShow] = useState(false)
@@ -42,19 +43,23 @@ function LoginScreen() {
 
 
     }
+     const onChangeLng = (key) => {
+        changeLaguage(key)
+        RNRestart.Restart()
+    }
     return (
 
 <SafeAreaView  style={addcss.MainContainer}>
 
 
         <View>
-            <HeadComponent Title='Login' />
+            <HeadComponent Title={langstring.LOGIN} />
             <ScrollView>
                 {/* ------------------------------------Email textinput------------------------------------- */}
                 <TextInputComponent
                     leftImage={true}
                     image={imagePath?.user}
-                    placeholder={'Enter Email  or Number'}
+                    placeholder={langstring.EMAIL_NUMBER}
                     placeholderTextColor={colors?.black}
                     value={email}
                     onchangetext={(event) => setEmail(event)}
@@ -63,14 +68,14 @@ function LoginScreen() {
                 />
                 {/* ------------------------------------Show wrong Email------------------------------------- */}
                 {
-                    show ? <TextComponent name={'Enter Email or Number'} styling={commanstyle.error} /> : null
+                    show ? <TextComponent name={strings.VALID_EMAIL_NUMBER} styling={commanstyle.error} /> : null
                 }
                 {/* ------------------------------------Password textinput------------------------------------- */}
 
                 <TextInputComponent
                     leftImage={true}
                     image={imagePath?.password}
-                    placeholder={'Enter Password '}
+                    placeholder={langstring.PASSWORD}
                     placeholderTextColor={colors?.black}
                     value={password}
                     onchangetext={(event) => setpassword(event)}
@@ -78,15 +83,24 @@ function LoginScreen() {
                 {/* ------------------------------------Show wrong password------------------------------------- */}
 
                 {
-                    showpassword ? <TextComponent name={'Enter valid password'} styling={commanstyle.error} /> : null
+                    showpassword ? <TextComponent name={langstring.VALID_PASSWORD} styling={commanstyle.error} /> : null
                 }
 
 
                 {/* ------------------------------------Login Button------------------------------------- */}
-                <Buttoncustam name='Login' onpress={Click} stylbtn={addcss.btnview} />
+                <Buttoncustam name={langstring.LOGIN} onpress={Click} stylbtn={addcss.btnview} />
                 {
-                    showpassword ? <TextComponent name={'Password  must contain Upper and lower \n alphabet & numerical letters'} styling={commanstyle.error} /> : null
+                    showpassword ? <TextComponent name={langstring.PASSWORD_ERROR} styling={commanstyle.error} /> : null
                 }
+
+                <TouchableOpacity onPress={() => onChangeLng('en')} >
+                    <TextComponent name={'English'} styling={{margin:10}}/>
+                  
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => onChangeLng('fr')} >
+                    <TextComponent name={'French'} styling={{margin:10}}/>
+                  
+                </TouchableOpacity>
             </ScrollView>
         </View>
         </SafeAreaView>

@@ -1,0 +1,23 @@
+export default {
+HOME:"Domicile",
+LOGIN:"Connexion",
+LOGOUT:"Se déconnecter",
+NAME:"Nom",
+PHONE:"Téléphoner",
+AGE:"Âge",
+ADDRESS:"Adresse",
+ROLL_NUMBER:"Numéro de rôle",
+ENTER_NAME:"Entrez le nom ",
+ENTER_PHONE:"Entrez le téléphone",
+ENTER_AGE:"Entrez l'âge",
+SUBMIT:"Soumettre",
+UPDATE:"Mise à jour",
+ENTER_ADDRESS:"Entrer l'adresse ",
+ENTER_ROLL_NUMBER:"Entrez le numéro de matricule",
+EMAIL_NUMBER:"Entrez un e-mail ou un numéro",
+PASSWORD:"Entrer le mot de passe",
+VALID_EMAIL_NUMBER:"Entrez un e-mail ou un numéro valide",
+VALID_PASSWORD:"Entrez un mot de passe valide",
+PASSWORD_ERROR:"* Le mot de passe doit comporter au moins 8 caractères \n * Le mot de passe doit contenir des majuscules, des minuscules et des chiffres",
+
+};

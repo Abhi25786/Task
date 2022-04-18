@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native'
+import {
+    StyleSheet
+} from 'react-native'
 import colors from '../../styles/colors'
 const homecss = StyleSheet.create({
 
@@ -12,6 +14,14 @@ const homecss = StyleSheet.create({
 
 
     },
+    imagebtn: {
+        flexDirection: "row",
+        justifyContent: "flex-end",
+        position: "absolute",
+        right: 0,
+        marginRight: 10,
+        bottom: 10
+    },
     mapview: {
         flexDirection: "row",
         marginHorizontal: 10,
@@ -22,6 +32,7 @@ const homecss = StyleSheet.create({
     },
     textcss: {
         color: colors.black
-    }
+    },
+
 })
 export default homecss

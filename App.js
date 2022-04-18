@@ -28,6 +28,7 @@ import { getData, getLogin, storeData } from './src/utils/utils';
 
 
 import { LogBox } from 'react-native';
+import langstring from './src/constants/lang';
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
@@ -53,6 +54,7 @@ const App = () => {
 
 
   useEffect(() => {
+    getLng()
     getLogin().then((res) => {
       console.log("store data", res)
 
@@ -72,6 +74,20 @@ const App = () => {
       }
     })
   }, [])
+    const getLng = async () => {
+    try {
+      const lng = await AsyncStorage.getItem('language')
+      console.log("Lng++++", lng)
+      if (!!lng) {
+        langstring.setLanguage(lng)
+      } else {
+        langstring.setLanguage('en')
+      }
+    } catch (error) {
+      console.log("error raised ",error)
+    }
+  }
+
   return (
     <>
       <StatusBar barStyle='dark-content' backgroundColor={"white"} />

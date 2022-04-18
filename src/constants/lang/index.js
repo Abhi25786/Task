@@ -1,10 +1,16 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import LocalizedStrings from 'react-native-localization';
-import en from './en';
 
-let strings = new LocalizedStrings({
+import en from './en';
+import fr from './fr';
+
+
+let langstring = new LocalizedStrings({
   en: en,
+  fr: fr
 });
-export const changeLaguage = languageKey => {
-  strings.setLanguage(languageKey);
+export const changeLaguage = async (languageKey) => {
+    await AsyncStorage.setItem('language', languageKey)
+    langstring.setLanguage(languageKey);
 };
-export default strings;
+export default langstring;

@@ -14,11 +14,13 @@ import HeadComponent from '../../components/HeadComponent';
 import TextComponent from '../../components/TextComponent';
 import TextInputComponent from '../../components/TextInput';
 import imagePath from '../../constants/imagePath';
+import langstring from '../../constants/lang';
 import strings from '../../navigation/navigationString';
 import { addData, updateData } from '../../redux/actions/auth';
 import colors from '../../styles/colors';
 import { commanstyle } from '../../styles/styling';
 import { getData, storeData } from '../../utils/utils';
+
 
 import addcss from './style';
 function AddScreen({ navigation, route }) {
@@ -122,13 +124,13 @@ function AddScreen({ navigation, route }) {
 
   return (
     <SafeAreaView style={addcss.MainContainer}>
-      <HeadComponent Title={allData ? strings?.Update : strings?.Submit} />
+      <HeadComponent Title={allData ? langstring?.UPDATE : langstring?.SUBMIT} />
       <ScrollView>
         {/* --------------------------------Add todo textinput------------------------------ */}
         <TextInputComponent
           leftImage={true}
           image={imagePath?.user}
-          placeholder={'Enter Name'}
+          placeholder={langstring.ENTER_NAME}
           placeholderTextColor={colors?.black}
           onchangetext={event => setName(event)}
           value={name}
@@ -137,13 +139,13 @@ function AddScreen({ navigation, route }) {
         />
         {/* ----------------------------------Show empty error------------------------------ */}
         {showname ? (
-          <TextComponent name={'Enter Name'} styling={commanstyle.error} />
+          <TextComponent name={langstring.ENTER_NAME} styling={commanstyle.error} />
         ) : null}
 
         <TextInputComponent
           leftImage={true}
           image={imagePath?.phonebok}
-          placeholder={'Enter Phone Number '}
+          placeholder={langstring.ENTER_PHONE}
           placeholderTextColor={colors?.black}
           onchangetext={event => setPhone(event)}
           value={phone}
@@ -153,7 +155,7 @@ function AddScreen({ navigation, route }) {
         />
         {showphone ? (
           <TextComponent
-            name={'Enter Valid Number'}
+            name={langstring.ENTER_PHONE}
             styling={commanstyle.error}
           />
         ) : null}
@@ -161,7 +163,7 @@ function AddScreen({ navigation, route }) {
           leftImage={false}
           img={imagePath.Add}
           rightImage={false}
-          placeholder={'Enter age'}
+          placeholder={langstring.ENTER_AGE}
           placeholderTextColor={colors?.black}
           onchangetext={event => setAge(event)}
           value={age}
@@ -169,11 +171,11 @@ function AddScreen({ navigation, route }) {
 
         />
         {showage ? (
-          <TextComponent name={'Enter Valid Age'} styling={commanstyle.error} />
+          <TextComponent name={langstring.ENTER_AGE}styling={commanstyle.error} />
         ) : null}
         <TextInputComponent
           image={imagePath?.address}
-          placeholder={'Enter roll number'}
+          placeholder={langstring.ENTER_ROLL_NUMBER}
           placeholderTextColor={colors?.black}
           onchangetext={event => setRollnumber(event)}
           keyboardtype={"numeric"}
@@ -181,24 +183,24 @@ function AddScreen({ navigation, route }) {
         />
         {showrollnumber ? (
           <TextComponent
-            name={'Enter Valid Roll Number'}
+            name={langstring.ENTER_ROLL_NUMBER}
             styling={commanstyle.error}
           />
         ) : null}
         <TextInputComponent
           leftImage={true}
           image={imagePath?.address}
-          placeholder={'Enter Address'}
+          placeholder={langstring.ENTER_ADDRESS}
           placeholderTextColor={colors?.black}
           onchangetext={event => setAddress(event)}
           value={address}
         />
         {showaddress ? (
-          <TextComponent name={'Enter Address'} styling={commanstyle.error} />
+          <TextComponent name={langstring.ENTER_ADDRESS} styling={commanstyle.error} />
         ) : null}
 
         {/* ---------------------------This is submit button---------------------------- */}
-        <Button name={allData ? strings?.Update : strings?.Submit} onpress={allData ? Update : AddData} stylbtn={addcss.btnview} />
+        <Button name={allData ? langstring?.UPDATE : langstring?.SUBMIT} onpress={allData ? Update : AddData} stylbtn={addcss.btnview} />
       </ScrollView>
     </SafeAreaView>
   );
