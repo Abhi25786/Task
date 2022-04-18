@@ -1,11 +1,11 @@
 
 
 export default {
-  user: require('../asscets/images/user.png'),
-  password: require('../asscets/images/password.png'),
-  Add: require('../asscets/images/plus.png'),
-  phonebok: require('../asscets/images/phone-book.png'),
-  address: require('../asscets/images/pin.png'),
-  trash: require('../asscets/images/delete.png'),
-  update: require('../asscets/images/edit.png'),
+  user: require('../assets/images/user.png'),
+  password: require('../assets/images/password.png'),
+  Add: require('../assets/images/plus.png'),
+  phonebok: require('../assets/images/phone-book.png'),
+  address: require('../assets/images/pin.png'),
+  trash: require('../assets/images/delete.png'),
+  update: require('../assets/images/edit.png'),
 };

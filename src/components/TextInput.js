@@ -26,7 +26,7 @@ const TextInputComponent = ({
             <View style={{ flex: 0.7, marginLeft: moderateScale(5) }}>
                 <TextInput
                     {...props}
-                    placeholder={placeholder} placeholderTextColor={placeholderTextColor} style={styles.inputtext} keyboardType={keyboardtype} value={value} onChangeText={onchangetext} />
+                    placeholder={placeholder} placeholderTextColor={placeholderTextColor} style={styles.inputtext} keyboardType={keyboardtype} value={value} onChangeText={onchangetext}  />
             </View>
 
             {rightImage && <View style={{ flex: 0.15, alignItems: 'flex-end'}}>
@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     inputtext: {
 
         paddingVertical: moderateScaleVertical(10),
+
 
     },
 

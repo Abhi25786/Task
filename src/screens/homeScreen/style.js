@@ -1,10 +1,15 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
-import {moderateScale, textScale} from '../../styles/responsiveSize';
+import {moderateScale, moderateScaleVertical, textScale} from '../../styles/responsiveSize';
 const homecss = StyleSheet.create({
   maincontainer: {
     flex: 1,
     backgroundColor: 'white',
+  },
+  headcss: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    marginHorizontal:moderateScale(10)
   },
   addbtn: {
     height: 50,
@@ -20,15 +25,19 @@ const homecss = StyleSheet.create({
   },
   mapview: {
     flexDirection: 'row',
-    marginHorizontal: 10,
+    marginHorizontal: moderateScale(10),
     borderColor: colors.lightGreyBg,
     borderWidth: 2,
-    marginVertical: 5,
+    marginVertical: moderateScaleVertical(10),
     borderRadius: 10,
   },
   textcss: {
     color: colors.black,
     fontSize: textScale(15),
+  },
+  headtextcss: {
+    color: colors.black,
+    fontSize: textScale(20),
   },
   textview: {
     flex: 0.9,
@@ -38,13 +47,18 @@ const homecss = StyleSheet.create({
     flex: 0.1,
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 10,
+    justifyContent: 'space-around',
+    paddingVertical: moderateScaleVertical(10),
   },
   btnimg: {
-    height: 30,
-    width: 30,
+    height: moderateScale(30),
+    width: moderateScale(30),
     marginRight: moderateScale(10),
+  },
+    editimg: {
+     height: moderateScale(30),
+    width: moderateScale(30),
+   
   },
 });
 export default homecss;

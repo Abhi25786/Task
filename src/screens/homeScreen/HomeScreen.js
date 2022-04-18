@@ -34,10 +34,10 @@ function HomeScreen({navigation}) {
   // storeData(list)
   return (
     <SafeAreaView style={homecss.maincontainer}>
-      <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
-        <TextComponent styling={homecss.textcss} name={langstring.HOME} />
+      <View style={homecss.headcss}>
+        <TextComponent styling={homecss.headtextcss} name={langstring.HOME} />
         <TouchableOpacity onPress={Logout}>
-          <TextComponent styling={homecss.textcss} name={langstring.LOGOUT} />
+          <TextComponent styling={homecss.headtextcss} name={langstring.LOGOUT} />
         </TouchableOpacity>
       </View>
 
@@ -48,6 +48,7 @@ function HomeScreen({navigation}) {
           return (
             <View style={homecss.mapview} key={String(index)}>
               <View style={homecss.textview}>
+        
                 <Text style={homecss.textcss}>
                   {langstring.NAME} :- {elem.name}
                 </Text>
@@ -70,7 +71,7 @@ function HomeScreen({navigation}) {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => navigation.navigate('Add Data', {elem})}>
-                  <Image source={imagePath.update} style={homecss.btnimg} />
+                  <Image source={imagePath.update} style={homecss.editimg} />
                 </TouchableOpacity>
 
                 {/* {console.log(elem)} */}
