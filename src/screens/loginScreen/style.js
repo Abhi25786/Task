@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import colors from '../../styles/colors'
+import fontfamily from '../../styles/fontFamily'
 import { moderateScale, textScale } from '../../styles/responsiveSize'
 const styling = StyleSheet.create({
     MainContainer: {
@@ -34,10 +35,14 @@ const styling = StyleSheet.create({
     btntext: {
         color: "white",
         fontSize: 20,
+        fontFamily:fontfamily.Mulish_Medium
     },
   languagetext:{
       margin: moderateScale(10),
-      fontSize:textScale(15)
+      fontSize:textScale(15),
+      color:"black",
+      fontFamily:fontfamily.Mulish_Medium
+  
   }
 
 

@@ -1,18 +1,17 @@
-import React, {useState} from 'react';
-import {SafeAreaView, ScrollView, TouchableOpacity, View} from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native';
 import RNRestart from 'react-native-restart';
 import Buttoncustam from '../../components/Button';
 import HeadComponent from '../../components/HeadComponent';
 import TextComponent from '../../components/TextComponent';
 import TextInputComponent from '../../components/TextInput';
 import imagePath from '../../constants/imagePath';
-import langstring from '../../constants/lang';
-import strings, {changeLaguage} from '../../constants/lang';
-import {loginContinue} from '../../redux/actions/auth';
+import { changeLaguage, default as langstring, default as strings } from '../../constants/lang';
+import { loginContinue } from '../../redux/actions/auth';
 import colors from '../../styles/colors';
-import {commanstyle} from '../../styles/styling';
+import { commanstyle } from '../../styles/styling';
 import addcss from '../AddScreen/style';
-import style from './style'
+import style from './style';
 
 function LoginScreen() {
   const [email, setEmail] = useState('');
@@ -52,6 +51,7 @@ function LoginScreen() {
             placeholderTextColor={colors?.black}
             value={email}
             onchangetext={event => setEmail(event)}
+            keyboardtype={'email-address'}
           />
           {/* ------------------------------------Show wrong Email------------------------------------- */}
           {show ? (
@@ -96,10 +96,10 @@ function LoginScreen() {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => onChangeLng('en')}>
-            <TextComponent name={'English'} styling={style.languagetext }/>
+            <TextComponent name={'English'} styling={style.languagetext} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => onChangeLng('fr')}>
-            <TextComponent name={'Français'} styling={style.languagetext }/>
+            <TextComponent name={'Français'} styling={style.languagetext} />
           </TouchableOpacity>
         </ScrollView>
       </View>

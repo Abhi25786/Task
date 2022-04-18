@@ -1,30 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Text,
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  TextInput,
-  Image,
-  ScrollView,
+  SafeAreaView, ScrollView
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Button from '../../components/Button';
 import HeadComponent from '../../components/HeadComponent';
 import TextComponent from '../../components/TextComponent';
 import TextInputComponent from '../../components/TextInput';
 import imagePath from '../../constants/imagePath';
 import langstring from '../../constants/lang';
-import strings from '../../navigation/navigationString';
 import { addData, updateData } from '../../redux/actions/auth';
 import colors from '../../styles/colors';
 import { commanstyle } from '../../styles/styling';
-import { getData, storeData } from '../../utils/utils';
-
-
 import addcss from './style';
-function AddScreen({ navigation, route }) {
-  const allData = route?.params?.elem
+
+function AddScreen({navigation, route}) {
+  const allData = route?.params?.elem;
 
   // ----------------------------this is inputtext usestate----------------------------//
   const [name, setName] = useState('Abhishek');
@@ -39,30 +30,20 @@ function AddScreen({ navigation, route }) {
   const [showage, setshowAge] = useState(false);
   const [showrollnumber, setshowRollnumber] = useState(false);
   const [showaddress, setshowAddress] = useState(false);
-  const list = useSelector((state) => state.datainput.list)
+  const list = useSelector(state => state.datainput.list);
   // console.log('====listdata', list)
-
-
 
   const userId = Math.floor(Math.random() * 1000);
 
-
-
   useEffect(() => {
     if (allData) {
-      setName(allData?.name)
-      setPhone(allData?.phone)
-      setAge(allData?.age)
-      setRollnumber(allData?.roll)
-      setAddress(allData?.address)
+      setName(allData?.name);
+      setPhone(allData?.phone);
+      setAge(allData?.age);
+      setRollnumber(allData?.roll);
+      setAddress(allData?.address);
     }
-  }, [allData])
-
-
-
-
-
-
+  }, [allData]);
 
   const Update = () => {
     if (name == '') {
@@ -81,17 +62,14 @@ function AddScreen({ navigation, route }) {
     } else if (address === '') {
       setshowRollnumber(false);
       setshowAddress(true);
-    }
-    else {
+    } else {
       setshowAddress(false);
-      updateData({ id: allData.userId, name, phone, address, age, roll })
-      navigation.navigate('Home')
+      updateData({id: allData.userId, name, phone, address, age, roll});
+      navigation.navigate('Home');
     }
-  }
+  };
 
   const AddData = () => {
-
-
     if (name == '') {
       setshowName(true);
     } else if (phone.length !== 10) {
@@ -108,23 +86,22 @@ function AddScreen({ navigation, route }) {
     } else if (address === '') {
       setshowRollnumber(false);
       setshowAddress(true);
-    }
-    else {
+    } else {
       setshowAddress(false);
 
       console.log('good');
-      addData([{ userId, name, phone, address, age, roll }])
-      navigation.navigate('Home')
+      addData([{userId, name, phone, address, age, roll}]);
+      navigation.navigate('Home');
     }
     // storeData(list)
     // console.log('====listdata', list)
   };
 
-
-
   return (
     <SafeAreaView style={addcss.MainContainer}>
-      <HeadComponent Title={allData ? langstring?.UPDATE : langstring?.SUBMIT} />
+      <HeadComponent
+        Title={allData ? langstring?.UPDATE : langstring?.SUBMIT}
+      />
       <ScrollView>
         {/* --------------------------------Add todo textinput------------------------------ */}
         <TextInputComponent
@@ -134,12 +111,13 @@ function AddScreen({ navigation, route }) {
           placeholderTextColor={colors?.black}
           onchangetext={event => setName(event)}
           value={name}
-
-
         />
         {/* ----------------------------------Show empty error------------------------------ */}
         {showname ? (
-          <TextComponent name={langstring.ENTER_NAME} styling={commanstyle.error} />
+          <TextComponent
+            name={langstring.ENTER_NAME}
+            styling={commanstyle.error}
+          />
         ) : null}
 
         <TextInputComponent
@@ -149,9 +127,8 @@ function AddScreen({ navigation, route }) {
           placeholderTextColor={colors?.black}
           onchangetext={event => setPhone(event)}
           value={phone}
-          keyboardtype={"numeric"}
+          keyboardtype={'numeric'}
           maxLength={10}
-
         />
         {showphone ? (
           <TextComponent
@@ -167,18 +144,20 @@ function AddScreen({ navigation, route }) {
           placeholderTextColor={colors?.black}
           onchangetext={event => setAge(event)}
           value={age}
-          keyboardtype={"numeric"}
-
+          keyboardtype={'numeric'}
         />
         {showage ? (
-          <TextComponent name={langstring.ENTER_AGE}styling={commanstyle.error} />
+          <TextComponent
+            name={langstring.ENTER_AGE}
+            styling={commanstyle.error}
+          />
         ) : null}
         <TextInputComponent
           image={imagePath?.address}
           placeholder={langstring.ENTER_ROLL_NUMBER}
           placeholderTextColor={colors?.black}
           onchangetext={event => setRollnumber(event)}
-          keyboardtype={"numeric"}
+          keyboardtype={'numeric'}
           value={roll}
         />
         {showrollnumber ? (
@@ -196,11 +175,18 @@ function AddScreen({ navigation, route }) {
           value={address}
         />
         {showaddress ? (
-          <TextComponent name={langstring.ENTER_ADDRESS} styling={commanstyle.error} />
+          <TextComponent
+            name={langstring.ENTER_ADDRESS}
+            styling={commanstyle.error}
+          />
         ) : null}
 
         {/* ---------------------------This is submit button---------------------------- */}
-        <Button name={allData ? langstring?.UPDATE : langstring?.SUBMIT} onpress={allData ? Update : AddData} stylbtn={addcss.btnview} />
+        <Button
+          name={allData ? langstring?.UPDATE : langstring?.SUBMIT}
+          onpress={allData ? Update : AddData}
+          stylbtn={addcss.btnview}
+        />
       </ScrollView>
     </SafeAreaView>
   );

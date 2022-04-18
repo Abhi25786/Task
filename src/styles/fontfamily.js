@@ -1,6 +1,5 @@
 export default {
-  mulishBold: 'Mulish-Bold',
-  mulishMedium: 'Mulish-Medium',
-  mulishRegular: 'Mulish-Regular',
-   mulishSemiBold: 'Mulish-SemiBold',
+CircularStd_Bold:"CircularStd-Bold",
+SquarePeg_Regular:"SquarePeg-Regular",
+Mulish_Medium:"Mulish-Medium"
 };

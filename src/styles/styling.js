@@ -4,6 +4,7 @@ export const commanstyle = StyleSheet.create({
     error: {
         color: colors.redB,
         marginHorizontal: 10,
-        marginVertical: 8
+        marginVertical: 8,
+        
     }
 })

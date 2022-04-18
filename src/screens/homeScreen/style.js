@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
+import fontfamily from '../../styles/fontFamily';
 import {moderateScale, moderateScaleVertical, textScale} from '../../styles/responsiveSize';
 const homecss = StyleSheet.create({
   maincontainer: {
@@ -9,18 +10,19 @@ const homecss = StyleSheet.create({
   headcss: {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginHorizontal:moderateScale(10)
+    marginHorizontal:moderateScale(10),
+    marginBottom:moderateScaleVertical(10)
   },
   addbtn: {
-    height: 50,
-    width: 50,
+    height: moderateScale(50),
+    width: moderateScale(50),
   },
   imagebtn: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
     position: 'absolute',
     right: 0,
-    marginRight: 10,
+    marginRight: moderateScale(10),
     bottom: 10,
   },
   mapview: {
@@ -30,18 +32,23 @@ const homecss = StyleSheet.create({
     borderWidth: 2,
     marginVertical: moderateScaleVertical(10),
     borderRadius: 10,
+     
   },
   textcss: {
     color: colors.black,
     fontSize: textScale(15),
+    fontFamily:fontfamily.Mulish_Medium
   },
   headtextcss: {
     color: colors.black,
     fontSize: textScale(20),
+    fontFamily:fontfamily.Mulish_Medium
+
   },
   textview: {
     flex: 0.9,
     marginLeft: moderateScale(10),
+  
   },
   btnview: {
     flex: 0.1,
