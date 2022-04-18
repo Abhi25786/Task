@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import colors from '../../styles/colors'
+import { moderateScale, textScale } from '../../styles/responsiveSize'
 const styling = StyleSheet.create({
     MainContainer: {
         flex: 1,
@@ -34,7 +35,10 @@ const styling = StyleSheet.create({
         color: "white",
         fontSize: 20,
     },
-  
+  languagetext:{
+      margin: moderateScale(10),
+      fontSize:textScale(15)
+  }
 
 
 })

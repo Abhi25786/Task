@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     image: {
         height: moderateScale(30),
         width: moderateScale(30),
-        margin: moderateScale(5),
+        marginHorizontal: moderateScale(5),
 
     },
     viewcss: {

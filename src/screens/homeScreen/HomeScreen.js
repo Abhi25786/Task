@@ -35,15 +35,9 @@ function HomeScreen({navigation}) {
   return (
     <SafeAreaView style={homecss.maincontainer}>
       <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
-        <TextComponent
-          styling={{color: colors.black, fontSize: textScale(20)}}
-          name={langstring.HOME}
-        />
+        <TextComponent styling={homecss.textcss} name={langstring.HOME} />
         <TouchableOpacity onPress={Logout}>
-          <TextComponent
-            styling={{color: colors.black, fontSize: textScale(20)}}
-            name={langstring.LOGOUT}
-          />
+          <TextComponent styling={homecss.textcss} name={langstring.LOGOUT} />
         </TouchableOpacity>
       </View>
 
@@ -53,7 +47,7 @@ function HomeScreen({navigation}) {
           // console.log(elem, "show data----")
           return (
             <View style={homecss.mapview} key={String(index)}>
-              <View style={{flex: 0.9, marginLeft: moderateScale(10)}}>
+              <View style={homecss.textview}>
                 <Text style={homecss.textcss}>
                   {langstring.NAME} :- {elem.name}
                 </Text>
@@ -70,26 +64,13 @@ function HomeScreen({navigation}) {
                   {langstring.ADDRESS} :- {elem.address}
                 </Text>
               </View>
-              <View
-                style={{
-                  flex: 0.1,
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  paddingVertical: 10,
-                }}>
+              <View style={homecss.btnview}>
                 <TouchableOpacity onPress={() => deleData(elem.userId)}>
-                  <Image
-                    source={imagePath.trash}
-                    style={{height: 30, width: 30, marginRight: 10}}
-                  />
+                  <Image source={imagePath.trash} style={homecss.btnimg} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => navigation.navigate('Add Data', {elem})}>
-                  <Image
-                    source={imagePath.update}
-                    style={{height: 27, width: 27}}
-                  />
+                  <Image source={imagePath.update} style={homecss.btnimg} />
                 </TouchableOpacity>
 
                 {/* {console.log(elem)} */}
