@@ -40,7 +40,7 @@ function HomeScreen({ navigation }) {
                         // console.log(elem, "show data----")
                         return (
 
-                            <View style={homecss.mapview} key={elem.userId}>
+                            <View style={homecss.mapview} key={String(index)}>
                                 <View style={{ flex: 0.9, marginLeft: moderateScale(10)}} >
                                     <Text style={homecss.textcss}>Name :- {elem.name}</Text>
                                     <Text style={homecss.textcss}>Phone :- {elem.phone}</Text>
