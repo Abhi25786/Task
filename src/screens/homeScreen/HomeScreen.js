@@ -1,3 +1,4 @@
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import React from 'react';
 import {
   FlatList, Image, SafeAreaView,
@@ -18,9 +19,17 @@ import homecss from './style';
 function HomeScreen({navigation}) {
   const list = useSelector(state => state.datainput.list);
   
-  const Logout = () => {
-    logoutContinue();
-  };
+  
+    // logoutContinue();
+ const signOut = async () => {
+  try {
+    await GoogleSignin.signOut();
+    // this.setState({ user: null }); // Remember to remove the user from your app's state as well
+   logoutContinue();
+  } catch (error) {
+    console.error(error);
+  }
+};
   // storeData(list)
   
   {/* ----------------------------Show Todo List------------------------------------ */}
@@ -62,7 +71,7 @@ function HomeScreen({navigation}) {
     <SafeAreaView style={homecss.maincontainer}>
       <View style={homecss.headcss}>
         <TextComponent styling={homecss.headtextcss} name={langstring.HOME} />
-        <TouchableOpacity onPress={Logout}>
+        <TouchableOpacity onPress={signOut}>
           <TextComponent
             styling={homecss.headtextcss}
             name={langstring.LOGOUT}

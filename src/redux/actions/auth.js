@@ -8,13 +8,7 @@ export const loginContinue = (data) => {
     payload: data
   })
 };
-export const LoginGoogle = (data) => {
 
-  dispatch({
-    type: types.LOGIN,
-    payload: data
-  })
-};
 export const logoutContinue = () => {
 
   dispatch({

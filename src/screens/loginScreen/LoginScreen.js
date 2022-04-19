@@ -51,7 +51,8 @@ function LoginScreen() {
       const email=userInfo.user.email
        const id=userInfo.user.id
        const data={email,id}
-      LoginGoogle(data);
+      loginContinue(data);
+       console.log(data,"google data");
       // this.setState({userInfo});
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
