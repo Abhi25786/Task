@@ -1,10 +1,15 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
+import {
+  GoogleSignin,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
 import {
   SafeAreaView,
   ScrollView,
   TouchableOpacity,
   Image,
   View,
+  Button,
   Text,
 } from 'react-native';
 import RNRestart from 'react-native-restart';
@@ -18,7 +23,7 @@ import {
   default as langstring,
   default as strings,
 } from '../../constants/lang';
-import {loginContinue} from '../../redux/actions/auth';
+import {loginContinue, LoginGoogle} from '../../redux/actions/auth';
 import colors from '../../styles/colors';
 import {
   moderateScale,
@@ -28,12 +33,86 @@ import {
 import {commanstyle} from '../../styles/styling';
 import addcss from '../AddScreen/style';
 import style from './style';
+import {signIn} from '../../../App';
 import {
-  GoogleSignin,
-  statusCodes,
-} from '@react-native-google-signin/google-signin';
+  LoginManager,
+  GraphRequest,
+  GraphRequestManager,
+} from 'react-native-fbsdk';
 
 function LoginScreen() {
+  // -----------------------Google Login ----------------------//
+
+  const signIn = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      // console.log('user info', userInfo.user.email);
+      const email=userInfo.user.email
+       const id=userInfo.user.id
+       const data={email,id}
+      LoginGoogle(data);
+      // this.setState({userInfo});
+    } catch (error) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        console.log('error raise', error);
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        console.log('error raise', error);
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        console.log('error raise', error);
+      } else {
+        // some other error happened
+      }
+    }
+  };
+
+  // -------------------------facebook login---------------------//
+  const fbLogIn = resCallBack => {
+    LoginManager.logOut();
+    return LoginManager.logInWithPermissions(['email', 'public_profile']).then(
+      result => {
+        console.log('fb result ****************', result);
+        if (
+          result.declinedPermissions &&
+          result.declinedPermissions.includes('email')
+        ) {
+          resCallBack({message: 'Email is required'});
+        }
+        if (result.isCancelled) {
+          console.log('dxcfgvbhjn');
+        } else {
+          const infoRequest = new GraphRequest(
+            'me?fields= email,name, picture',
+            null,
+            resCallBack,
+          );
+          new GraphRequestManager().addRequest(infoRequest).start();
+        }
+      },
+      function (errror) {
+        console.log('login failed', errror);
+      },
+    );
+  };
+
+  const onFBlogIn = async () => {
+    try {
+      await fbLogIn(_resInfoCallback);
+    } catch (error) {
+      console.log('drcfgvbhjnk', error);
+    }
+  };
+
+  const _resInfoCallback = async (error, result) => {
+    if (error) {
+      console.log('error raised at response', error);
+      return;
+    } else {
+      const userData = result;
+      console.log('userData **********', userData);
+    }
+  };
+
   const [email, setEmail] = useState('');
   const [password, setpassword] = useState('');
   const [show, setShow] = useState(false);
@@ -59,9 +138,8 @@ function LoginScreen() {
     RNRestart.Restart();
   };
 
-  useEffect(()=>{
-GoogleSignin.configure()
-  },[])
+ 
+
   return (
     <SafeAreaView style={addcss.MainContainer}>
       <View>
@@ -122,43 +200,43 @@ GoogleSignin.configure()
               justifyContent: 'space-around',
               marginTop: moderateScaleVertical(10),
             }}>
-
-              <TouchableOpacity style={{
+            <TouchableOpacity
+              style={{
                 borderWidth: 0.5,
                 borderRadius: 5,
                 flex: 0.4,
-                
+
                 alignItems: 'center',
                 justifyContent: 'center',
                 paddingVertical: moderateScaleVertical(5),
-              }}>
+              }}
+              onPress={signIn}>
+              <View style={{flexDirection: 'row'}}>
+                <Image
+                  source={imagePath.Google}
+                  style={{height: moderateScale(30), width: moderateScale(30)}}
+                />
+                <Text style={{color: 'lightblue', fontSize: textScale(20)}}>
+                  oogle
+                </Text>
+              </View>
+            </TouchableOpacity>
 
-            <View style={{flexDirection: 'row',}}
-              >
-              <Image
-                source={imagePath.Google}
-                style={{height: moderateScale(30), width: moderateScale(30)}}
-              />
-              <Text style={{color: 'lightblue', fontSize: textScale(20)}}>
-                oogle
-              </Text>
-            </View>
-              </TouchableOpacity>
-           
-           <TouchableOpacity style={{
+            <TouchableOpacity
+              style={{
                 backgroundColor: '#4267B2',
                 flex: 0.4,
                 alignItems: 'center',
                 borderRadius: 5,
                 justifyContent: 'center',
-              }}>
-             <View
-              >
-              <Text style={{color: 'white', fontSize: textScale(20)}}>
-                facebook
-              </Text>
-            </View>
-             </TouchableOpacity> 
+              }}
+              onPress={onFBlogIn}>
+              <View>
+                <Text style={{color: 'white', fontSize: textScale(20)}}>
+                  facebook
+                </Text>
+              </View>
+            </TouchableOpacity>
           </View>
 
           {/* ---------------------------Language section-------------------- */}
