@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "442898339396",
+    "project_id": "demolist-43a3d",
+    "storage_bucket": "demolist-43a3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442898339396:android:4753bb1a5f341d7b66ce11",
+        "android_client_info": {
+          "package_name": "com.demolist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442898339396-6hds7v2ugkts7un9tm87d6173rbv88r1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeg0P7Dm2yoGPM7BF7Sw9Z4CGybr9DWRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442898339396-6hds7v2ugkts7un9tm87d6173rbv88r1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

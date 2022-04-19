@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginScreen from '../screens/LoginScreen/LoginScreen';
+import LoginScreen from '../Screens/LoginScreen/LoginScreen';
 
 export default function (Stack) {
   return (

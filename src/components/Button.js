@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import styling from '../screens/LoginScreen/style';
+import styling from '../Screens/LoginScreen/style';
 function Buttoncustam({name = '', onpress = '', stylbtn = ''}) {
   return (
     <TouchableOpacity onPress={onpress}>

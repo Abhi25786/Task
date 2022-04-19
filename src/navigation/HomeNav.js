@@ -1,6 +1,6 @@
 import React from 'react';
-import AddScreen from '../screens/AddScreen/AddScreen';
-import HomeScreen from '../screens/HomeScreen/HomeScreen';
+import AddScreen from '../Screens/AddScreen/AddScreen';
+import HomeScreen from '../Screens/HomeScreen/HomeScreen';
 
 
 

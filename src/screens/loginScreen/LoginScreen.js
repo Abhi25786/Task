@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -28,6 +28,10 @@ import {
 import {commanstyle} from '../../styles/styling';
 import addcss from '../AddScreen/style';
 import style from './style';
+import {
+  GoogleSignin,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
 
 function LoginScreen() {
   const [email, setEmail] = useState('');
@@ -54,6 +58,10 @@ function LoginScreen() {
     changeLaguage(key);
     RNRestart.Restart();
   };
+
+  useEffect(()=>{
+GoogleSignin.configure()
+  },[])
   return (
     <SafeAreaView style={addcss.MainContainer}>
       <View>
@@ -114,16 +122,19 @@ function LoginScreen() {
               justifyContent: 'space-around',
               marginTop: moderateScaleVertical(10),
             }}>
-            <View
-              style={{
-              borderWidth:0.5,
-              borderRadius:5,
+
+              <TouchableOpacity style={{
+                borderWidth: 0.5,
+                borderRadius: 5,
                 flex: 0.4,
-                flexDirection: 'row',
+                
                 alignItems: 'center',
                 justifyContent: 'center',
                 paddingVertical: moderateScaleVertical(5),
               }}>
+
+            <View style={{flexDirection: 'row',}}
+              >
               <Image
                 source={imagePath.Google}
                 style={{height: moderateScale(30), width: moderateScale(30)}}
@@ -132,18 +143,22 @@ function LoginScreen() {
                 oogle
               </Text>
             </View>
-            <View
-              style={{
+              </TouchableOpacity>
+           
+           <TouchableOpacity style={{
                 backgroundColor: '#4267B2',
                 flex: 0.4,
                 alignItems: 'center',
-                borderRadius:5,
+                borderRadius: 5,
                 justifyContent: 'center',
               }}>
+             <View
+              >
               <Text style={{color: 'white', fontSize: textScale(20)}}>
                 facebook
               </Text>
             </View>
+             </TouchableOpacity> 
           </View>
 
           {/* ---------------------------Language section-------------------- */}
