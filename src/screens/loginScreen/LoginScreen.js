@@ -43,56 +43,57 @@ import {
 function LoginScreen() {
   // -----------------------Google Login ----------------------//
 
+  const signIn = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      const data = userInfo.user;
 
- const signIn = async () => {
-  try {
-    await GoogleSignin.hasPlayServices();
-    const userInfo = await GoogleSignin.signIn();
-    const data =userInfo.user
-    
-    loginContinue(data);
-    console.log("user info", data)
-    // this.setState({ userInfo });
-  } catch (error) {
-    if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-      console.log("error raise", error)
-    } else if (error.code === statusCodes.IN_PROGRESS) {
-      
-      console.log("error raise", error)
-    } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-      console.log("error raise", error)
-    } else {
-      console.log("error raise", error)
+      loginContinue(data);
+      console.log('user info', data);
+      // this.setState({ userInfo });
+    } catch (error) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        console.log('error raise', error);
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        console.log('error raise', error);
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        console.log('error raise', error);
+      } else {
+        console.log('error raise', error);
+      }
     }
-  }
-};
+  };
 
   // -------------------------facebook login---------------------//
 
-  const fbLogIn = (resCallback) => {
-  LoginManager.logOut();
-  return LoginManager.logInWithPermissions(['email', 'public_profile']).then(
-    result => {
-      console.log("fb result==>>>>>>", result);
-      if (result.declinedPermissions && result.declinedPermissions.includes("email")) {
-        resCallback({ message: " Eamil is required" })
-      }
-      if (result.isCancelled) {
-        console.log("error")
-      } else {
-        const infoRequest = new GraphRequest(
-          '/me?fileds=email,name,picture,friend',
-          null,
-          resCallback
-        );
-        new GraphRequestManager().addRequest(infoRequest).start()
-      }
-    },
-    function (error) {
-      console.log("Login fail with error:" + error)
-    }
-  )
-}
+  const fbLogIn = resCallback => {
+    LoginManager.logOut();
+    return LoginManager.logInWithPermissions(['email', 'public_profile']).then(
+      result => {
+        console.log('fb result==>>>>>>', result);
+        if (
+          result.declinedPermissions &&
+          result.declinedPermissions.includes('email')
+        ) {
+          resCallback({message: ' Eamil is required'});
+        }
+        if (result.isCancelled) {
+          console.log('error');
+        } else {
+          const infoRequest = new GraphRequest(
+            '/me?fileds=email,name,picture,friend',
+            null,
+            resCallback,
+          );
+          new GraphRequestManager().addRequest(infoRequest).start();
+        }
+      },
+      function (error) {
+        console.log('Login fail with error:' + error);
+      },
+    );
+  };
 
   const onFBlogIn = async () => {
     try {
@@ -109,7 +110,7 @@ function LoginScreen() {
     } else {
       const userData = result;
       console.log('userData -----', userData);
-      loginContinue(userData)
+      loginContinue(userData);
     }
   };
 
@@ -137,8 +138,6 @@ function LoginScreen() {
     changeLaguage(key);
     RNRestart.Restart();
   };
-
- 
 
   return (
     <SafeAreaView style={addcss.MainContainer}>
@@ -194,43 +193,17 @@ function LoginScreen() {
             />
           ) : null}
 
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-              marginTop: moderateScaleVertical(10),
-            }}>
-            <TouchableOpacity
-              style={{
-                borderWidth: 0.5,
-                borderRadius: 5,
-                flex: 0.4,
-
-                alignItems: 'center',
-                justifyContent: 'center',
-                paddingVertical: moderateScaleVertical(5),
-              }}
-              onPress={signIn}>
-              <View style={{flexDirection: 'row'}}>
+          <View style={style.Socialcontainer}>
+            <TouchableOpacity style={style.googlebtn} onPress={signIn}>
+              <View>
                 <Image
                   source={imagePath.Google}
-                  style={{height: moderateScale(30), width: moderateScale(30)}}
+                  style={{height: moderateScale(32), width: moderateScale(100)}}
                 />
-                <Text style={{color: 'lightblue', fontSize: textScale(20)}}>
-                  oogle
-                </Text>
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity
-              style={{
-                backgroundColor: '#4267B2',
-                flex: 0.4,
-                alignItems: 'center',
-                borderRadius: 5,
-                justifyContent: 'center',
-              }}
-              onPress={onFBlogIn}>
+            <TouchableOpacity style={style.facebookbtn} onPress={onFBlogIn}>
               <View>
                 <Text style={{color: 'white', fontSize: textScale(20)}}>
                   facebook
