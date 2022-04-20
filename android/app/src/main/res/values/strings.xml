@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">demo</string>
+    <string name="app_name">Todolist</string>
 
-<string name="facebook_app_id">1234</string>
-<string name="fb_login_protocol_scheme">fb1234</string>
+
+<string name="facebook_app_id">3356450127917061</string>
+<string name="fb_login_protocol_scheme">fb3356450127917061</string>
 <string name="facebook_client_token">56789</string>
+
 
 
 </resources>

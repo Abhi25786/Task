@@ -111,6 +111,7 @@ function LoginScreen() {
     } else {
       const userData = result;
       console.log('userData **********', userData);
+      loginContinue(userData)
     }
   };
 
