@@ -8,14 +8,14 @@ const datainput = (state = initiallistState, action) => {
   // ----------------------------add action reducer------------------------------//
   switch (action.type) {
     case 'ADD_DATA': {
-      console.log("pyalod data", action.payload)
+      // console.log("pyalod data", action.payload)
       const data = action.payload
 
 
       let mergeData = [...state.list, ...data]
 
       storeData(mergeData).then((val) => {
-        console.log("my store data", val)
+        // console.log("my store data", val)
       })
       return {
         ...state,

@@ -68,9 +68,9 @@ const homecss = StyleSheet.create({
    
   },
   email:{
-    marginHorizontal:moderateScale(10),
+    marginHorizontal:moderateScale(15),
       color: colors.black,
-    fontSize: textScale(20),
+    fontSize: textScale(17),
     fontFamily:fontfamily.Mulish_Medium
   }
 });

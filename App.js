@@ -7,31 +7,19 @@
  */
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, {useEffect} from 'react';
-
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  Button,
-} from 'react-native';
-import {Provider, useDispatch, useSelector} from 'react-redux';
-import Home from './Home';
+  GoogleSignin
+} from '@react-native-google-signin/google-signin';
+import React, { useEffect } from 'react';
+import { LogBox, StatusBar } from 'react-native';
+import { Provider } from 'react-redux';
+import langstring from './src/constants/lang';
 import Routes from './src/navigation/Routes';
 import store from './src/redux/store';
 import types from './src/redux/types';
-import {getData, getLogin, storeData} from './src/utils/utils';
+import { getData, getLogin } from './src/utils/utils';
+import { notificationListener, requestUserPermission } from './src/utils/notificationService'
 
-import {LogBox} from 'react-native';
-import langstring from './src/constants/lang';
-import {
-  GoogleSignin,
-  statusCodes,
-} from '@react-native-google-signin/google-signin';
 
 
 LogBox.ignoreLogs([
@@ -42,11 +30,13 @@ const {dispatch} = store;
 
 const App = () => {
   useEffect(() => {
+    requestUserPermission()
+    notificationListener()
     GoogleSignin.configure();
     getLng();
 
     getLogin().then(res => {
-      console.log('store data', res);
+      // console.log('store data', res);
 
       dispatch({
         type: types.LOGIN,
@@ -54,7 +44,7 @@ const App = () => {
       });
     });
     getData().then(res => {
-      console.log('store data', res);
+      // console.log('store data', res);
       if (!!res) {
         dispatch({
           type: 'ADD_DATA',
@@ -66,7 +56,7 @@ const App = () => {
   const getLng = async () => {
     try {
       const lng = await AsyncStorage.getItem('language');
-      console.log('Lng++++', lng);
+      // console.log('Lng++++', lng);
       if (!!lng) {
         langstring.setLanguage(lng);
       } else {

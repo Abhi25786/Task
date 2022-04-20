@@ -8,7 +8,7 @@ export const Continue = (state = initialState, action) => {
     switch (action.type) {
         case types.LOGIN: {
             const data = action.payload
-            console.log("Logindata--------", data)
+            // console.log("Logindata--------", data)
             storeLogin(data)
             return { userdata: data };
         }
