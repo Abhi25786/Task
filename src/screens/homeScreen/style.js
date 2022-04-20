@@ -67,5 +67,11 @@ const homecss = StyleSheet.create({
     width: moderateScale(30),
    
   },
+  email:{
+    marginHorizontal:moderateScale(10),
+      color: colors.black,
+    fontSize: textScale(20),
+    fontFamily:fontfamily.Mulish_Medium
+  }
 });
 export default homecss;

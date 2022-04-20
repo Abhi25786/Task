@@ -43,37 +43,16 @@ import {
 function LoginScreen() {
   // -----------------------Google Login ----------------------//
 
-  // const signIn = async () => {
-  //   try {
-  //     await GoogleSignin.hasPlayServices();
-  //     const userInfo = await GoogleSignin.signIn();
-  //     console.log(userInfo,"user Data info")
-  //     // console.log('user info', userInfo.user.email);
-  //     // const email=userInfo.user.email
-  //     //  const id=userInfo.user.id
-  //     //  const data={email,id}
-  //     // loginContinue(data);
-    
-  //     // this.setState({userInfo});
-  //   } catch (error) {
-  //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-  //       console.log('error raise', error);
-  //     } else if (error.code === statusCodes.IN_PROGRESS) {
-  //       console.log('error raise', error);
-  //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-  //       console.log('error raise', error);
-  //     } else {
-  //       // some other error happened
-  //     }
-  //   }
-  // };
+
  const signIn = async () => {
   try {
     await GoogleSignin.hasPlayServices();
     const userInfo = await GoogleSignin.signIn();
-    console.log("user info", userInfo)
-    loginContinue(userInfo);
-    this.setState({ userInfo });
+    const data =userInfo.user
+    
+    loginContinue(data);
+    console.log("user info", data)
+    // this.setState({ userInfo });
   } catch (error) {
     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
       console.log("error raise", error)
@@ -134,17 +113,17 @@ function LoginScreen() {
     }
   };
 
-  const [email, setEmail] = useState('');
+  const [name, setEmail] = useState('');
   const [password, setpassword] = useState('');
   const [show, setShow] = useState(false);
   const [showpassword, setShowpassword] = useState(false);
 
   const strongRegex = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})');
 
-  const data = {email, password};
+  const data = {name, password};
   // --------------------------------Login button function-----------------------------//
   const Click = () => {
-    if (email.length < 10) {
+    if (name.length < 10) {
       setShow(true);
     } else if (strongRegex.test(password)) {
       console.log('mylogin----', data);
@@ -172,7 +151,7 @@ function LoginScreen() {
             image={imagePath?.user}
             placeholder={langstring.EMAIL_NUMBER}
             placeholderTextColor={colors?.black}
-            value={email}
+            value={name}
             onchangetext={event => setEmail(event)}
             keyboardtype={'email-address'}
           />

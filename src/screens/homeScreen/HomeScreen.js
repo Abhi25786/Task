@@ -18,14 +18,16 @@ import homecss from './style';
 
 function HomeScreen({navigation}) {
   const list = useSelector(state => state.datainput.list);
-  
-  const email = list.u
+  const userdata =useSelector(state => state.Continue.userdata);
+
     // logoutContinue();
  const signOut = async () => {
   try {
     await GoogleSignin.signOut();
     // this.setState({ user: null }); // Remember to remove the user from your app's state as well
+    console.log("getis emaikl",userdata)
    logoutContinue();
+
   } catch (error) {
     console.error(error);
   }
@@ -70,7 +72,7 @@ function HomeScreen({navigation}) {
   return (
     <SafeAreaView style={homecss.maincontainer}>
 
-      <Text></Text>
+   
       <View style={homecss.headcss}>
         <TextComponent styling={homecss.headtextcss} name={langstring.HOME} />
         <TouchableOpacity onPress={signOut}>
@@ -80,6 +82,7 @@ function HomeScreen({navigation}) {
           />
         </TouchableOpacity>
       </View>
+         <Text style={ homecss.email}>{userdata?.name}</Text>
 
       <FlatList data={list} renderItem={renderData} showsVerticalScrollIndicator={false}/>
       
