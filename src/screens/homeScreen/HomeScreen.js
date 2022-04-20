@@ -19,7 +19,7 @@ import homecss from './style';
 function HomeScreen({navigation}) {
   const list = useSelector(state => state.datainput.list);
   
-  
+  const email = list.u
     // logoutContinue();
  const signOut = async () => {
   try {
@@ -69,6 +69,8 @@ function HomeScreen({navigation}) {
   };
   return (
     <SafeAreaView style={homecss.maincontainer}>
+
+      <Text></Text>
       <View style={homecss.headcss}>
         <TextComponent styling={homecss.headtextcss} name={langstring.HOME} />
         <TouchableOpacity onPress={signOut}>

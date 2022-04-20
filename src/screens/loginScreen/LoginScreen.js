@@ -43,64 +43,83 @@ import {
 function LoginScreen() {
   // -----------------------Google Login ----------------------//
 
-  const signIn = async () => {
-    try {
-      await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
-      // console.log('user info', userInfo.user.email);
-      const email=userInfo.user.email
-       const id=userInfo.user.id
-       const data={email,id}
-      loginContinue(data);
-       console.log(data,"google data");
-      // this.setState({userInfo});
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        console.log('error raise', error);
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        console.log('error raise', error);
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        console.log('error raise', error);
-      } else {
-        // some other error happened
-      }
+  // const signIn = async () => {
+  //   try {
+  //     await GoogleSignin.hasPlayServices();
+  //     const userInfo = await GoogleSignin.signIn();
+  //     console.log(userInfo,"user Data info")
+  //     // console.log('user info', userInfo.user.email);
+  //     // const email=userInfo.user.email
+  //     //  const id=userInfo.user.id
+  //     //  const data={email,id}
+  //     // loginContinue(data);
+    
+  //     // this.setState({userInfo});
+  //   } catch (error) {
+  //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+  //       console.log('error raise', error);
+  //     } else if (error.code === statusCodes.IN_PROGRESS) {
+  //       console.log('error raise', error);
+  //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+  //       console.log('error raise', error);
+  //     } else {
+  //       // some other error happened
+  //     }
+  //   }
+  // };
+ const signIn = async () => {
+  try {
+    await GoogleSignin.hasPlayServices();
+    const userInfo = await GoogleSignin.signIn();
+    console.log("user info", userInfo)
+    loginContinue(userInfo);
+    this.setState({ userInfo });
+  } catch (error) {
+    if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+      console.log("error raise", error)
+    } else if (error.code === statusCodes.IN_PROGRESS) {
+      
+      console.log("error raise", error)
+    } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+      console.log("error raise", error)
+    } else {
+      console.log("error raise", error)
     }
-  };
+  }
+};
 
   // -------------------------facebook login---------------------//
-  const fbLogIn = resCallBack => {
-    LoginManager.logOut();
-    return LoginManager.logInWithPermissions(['email', 'public_profile']).then(
-      result => {
-        console.log('fb result ****************', result);
-        if (
-          result.declinedPermissions &&
-          result.declinedPermissions.includes('email')
-        ) {
-          resCallBack({message: 'Email is required'});
-        }
-        if (result.isCancelled) {
-          console.log('dxcfgvbhjn');
-        } else {
-          const infoRequest = new GraphRequest(
-            'me?fields= email,name, picture',
-            null,
-            resCallBack,
-          );
-          new GraphRequestManager().addRequest(infoRequest).start();
-        }
-      },
-      function (errror) {
-        console.log('login failed', errror);
-      },
-    );
-  };
+
+  const fbLogIn = (resCallback) => {
+  LoginManager.logOut();
+  return LoginManager.logInWithPermissions(['email', 'public_profile']).then(
+    result => {
+      console.log("fb result==>>>>>>", result);
+      if (result.declinedPermissions && result.declinedPermissions.includes("email")) {
+        resCallback({ message: " Eamil is required" })
+      }
+      if (result.isCancelled) {
+        console.log("error")
+      } else {
+        const infoRequest = new GraphRequest(
+          '/me?fileds=email,name,picture,friend',
+          null,
+          resCallback
+        );
+        new GraphRequestManager().addRequest(infoRequest).start()
+      }
+    },
+    function (error) {
+      console.log("Login fail with error:" + error)
+    }
+  )
+}
 
   const onFBlogIn = async () => {
     try {
       await fbLogIn(_resInfoCallback);
     } catch (error) {
-      console.log('drcfgvbhjnk', error);
+      console.log('fberror-', error);
     }
   };
 
@@ -110,7 +129,7 @@ function LoginScreen() {
       return;
     } else {
       const userData = result;
-      console.log('userData **********', userData);
+      console.log('userData -----', userData);
       loginContinue(userData)
     }
   };

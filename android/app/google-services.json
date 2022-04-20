@@ -14,7 +14,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "442898339396-94p12scli08ofoau2t69mglgs1f4ni11.apps.googleusercontent.com",
+          "client_id": "442898339396-dnq5aic1c3liag5vsg3oa8h9fvc6l14g.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.demolist",
@@ -37,6 +37,13 @@
             {
               "client_id": "442898339396-6hds7v2ugkts7un9tm87d6173rbv88r1.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "442898339396-adbmo9ku0mhc7cmdblrlp1humcu8l3kh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.demolist"
+              }
             }
           ]
         }

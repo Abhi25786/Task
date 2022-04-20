@@ -16,7 +16,7 @@
 		4A64C69D936B4760B966990B /* Mulish-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 68CD4DE6CA974D0B8FEB0F22 /* Mulish-Bold.otf */; };
 		7699B88040F8A987B510C191 /* libPods-demo-demoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-demo-demoTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		849F7F4F280ED2C800BDE0AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849F7F4E280ED2C800BDE0AD /* GoogleService-Info.plist */; };
+		84A64118280FD0010033D32D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A64117280FD0000033D32D /* GoogleService-Info.plist */; };
 		B91FA483796B4B2A89E2E5AA /* Mulish-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AEA027143CCB4E638CB65105 /* Mulish-SemiBold.otf */; };
 		F40C5DB4ED1249C98CD60000 /* CircularStd-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE773DA3741A45CA893C29EA /* CircularStd-Bold.ttf */; };
 		F58AB0FD5B9C4C9FA5A6978F /* Mulish-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB012F7364C143F1ADD517C1 /* Mulish-Medium.otf */; };
@@ -50,7 +50,7 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68CD4DE6CA974D0B8FEB0F22 /* Mulish-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Mulish-Bold.otf"; path = "../src/assets/fonts/Mulish-Bold.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = demo/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		849F7F4E280ED2C800BDE0AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84A64117280FD0000033D32D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-demo-demoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo-demoTests.release.xcconfig"; path = "Target Support Files/Pods-demo-demoTests/Pods-demo-demoTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5FEBCF4F298468C8EDA216A /* Mulish-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Mulish-Regular.otf"; path = "../src/assets/fonts/Mulish-Regular.otf"; sourceTree = "<group>"; };
 		AE773DA3741A45CA893C29EA /* CircularStd-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Bold.ttf"; path = "../src/assets/fonts/CircularStd-Bold.ttf"; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		13B07FAE1A68108700A75B9A /* demo */ = {
 			isa = PBXGroup;
 			children = (
-				849F7F4E280ED2C800BDE0AD /* GoogleService-Info.plist */,
+				84A64117280FD0000033D32D /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -274,7 +274,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				849F7F4F280ED2C800BDE0AD /* GoogleService-Info.plist in Resources */,
+				84A64118280FD0010033D32D /* GoogleService-Info.plist in Resources */,
 				F40C5DB4ED1249C98CD60000 /* CircularStd-Bold.ttf in Resources */,
 				4A64C69D936B4760B966990B /* Mulish-Bold.otf in Resources */,
 				F58AB0FD5B9C4C9FA5A6978F /* Mulish-Medium.otf in Resources */,
