@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   inputtext: {
     paddingVertical: moderateScaleVertical(10),
-
+    color: 'black',
     fontFamily: fontfamily.Mulish_Medium,
   },
 });
