@@ -1,6 +1,6 @@
 import React from 'react';
-import AddScreen from '../Screens/AddScreen/AddScreen';
-import HomeScreen from '../Screens/HomeScreen/HomeScreen';
+import AddScreen from '../Screen/AddScreen/AddScreen';
+import HomeScreen from '../Screen/HomeScreen/HomeScreen';
 
 export default function (Stack) {
   return (
