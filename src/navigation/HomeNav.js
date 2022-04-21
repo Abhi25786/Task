@@ -2,9 +2,6 @@ import React from 'react';
 import AddScreen from '../Screens/AddScreen/AddScreen';
 import HomeScreen from '../Screens/HomeScreen/HomeScreen';
 
-
-
-
 export default function (Stack) {
   return (
     <>

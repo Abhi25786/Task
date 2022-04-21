@@ -7,31 +7,29 @@
  */
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {
-  GoogleSignin
-} from '@react-native-google-signin/google-signin';
-import React, { useEffect } from 'react';
-import { LogBox, StatusBar } from 'react-native';
-import { Provider } from 'react-redux';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import React, {useEffect} from 'react';
+import {LogBox, StatusBar} from 'react-native';
+import {Provider} from 'react-redux';
 import langstring from './src/constants/lang';
 import Routes from './src/navigation/Routes';
 import store from './src/redux/store';
 import types from './src/redux/types';
-import { getData, getLogin } from './src/utils/utils';
-import { notificationListener, requestUserPermission } from './src/utils/notificationService'
-
-
+import {getData, getLogin} from './src/utils/utils';
+import {
+  notificationListener,
+  requestUserPermission,
+} from './src/utils/notificationService';
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
 ]);
 const {dispatch} = store;
 
-
 const App = () => {
   useEffect(() => {
-    requestUserPermission()
-    notificationListener()
+    requestUserPermission();
+    notificationListener();
     GoogleSignin.configure();
     getLng();
 

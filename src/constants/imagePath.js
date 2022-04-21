@@ -1,5 +1,3 @@
-
-
 export default {
   user: require('../assets/images/user.png'),
   password: require('../assets/images/password.png'),
@@ -8,5 +6,5 @@ export default {
   address: require('../assets/images/pin.png'),
   trash: require('../assets/images/delete.png'),
   update: require('../assets/images/edit.png'),
-  Google: require('../assets/images/google.png'),
+  Google: require('../assets/images/Google.png'),
 };
