@@ -1,17 +1,22 @@
-import React, {useState, useEffect} from 'react';
 import {
   GoogleSignin,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+import React, {useState} from 'react';
 import {
+  Image,
   SafeAreaView,
   ScrollView,
-  TouchableOpacity,
-  Image,
-  View,
-  Button,
   Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import {
+  GraphRequest,
+  GraphRequestManager,
+  LoginManager,
+} from 'react-native-fbsdk';
+import Modal from 'react-native-modal';
 import RNRestart from 'react-native-restart';
 import Buttoncustam from '../../components/Button';
 import HeadComponent from '../../components/HeadComponent';
@@ -23,24 +28,19 @@ import {
   default as langstring,
   default as strings,
 } from '../../constants/lang';
-import {loginContinue, LoginGoogle} from '../../redux/actions/auth';
+import {loginContinue} from '../../redux/actions/auth';
 import colors from '../../styles/colors';
-import {
-  moderateScale,
-  moderateScaleVertical,
-  textScale,
-} from '../../styles/responsiveSize';
+import {moderateScale, textScale} from '../../styles/responsiveSize';
 import {commanstyle} from '../../styles/styling';
 import addcss from '../AddScreen/style';
 import style from './style';
-import {signIn} from '../../../App';
-import {
-  LoginManager,
-  GraphRequest,
-  GraphRequestManager,
-} from 'react-native-fbsdk';
 
 function LoginScreen() {
+  const [isModalVisible, setModalVisible] = useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+
   // -----------------------Google Login ----------------------//
 
   const signIn = async () => {
@@ -213,6 +213,17 @@ function LoginScreen() {
           </View>
 
           {/* ---------------------------Language section-------------------- */}
+
+          <TouchableOpacity onPress={toggleModal}>
+            <TextComponent
+              name={'Choose Language'}
+              styling={style.languagetext}
+            />
+          </TouchableOpacity>
+        </ScrollView>
+      </View>
+      <Modal isVisible={isModalVisible}>
+        <View style={{backgroundColor: 'white'}}>
           <TouchableOpacity onPress={() => onChangeLng('hn')}>
             <TextComponent name={'हिन्दी'} styling={style.languagetext} />
           </TouchableOpacity>
@@ -223,8 +234,13 @@ function LoginScreen() {
           <TouchableOpacity onPress={() => onChangeLng('fr')}>
             <TextComponent name={'Français'} styling={style.languagetext} />
           </TouchableOpacity>
-        </ScrollView>
-      </View>
+          <Buttoncustam
+            name="Back"
+            stylbtn={style.backbtn}
+            onpress={toggleModal}
+          />
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }

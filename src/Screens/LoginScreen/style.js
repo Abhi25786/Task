@@ -65,5 +65,11 @@ const styling = StyleSheet.create({
     borderRadius: 5,
     justifyContent: 'center',
   },
+  backbtn: {
+    backgroundColor: colors.blueB,
+    alignItems: 'center',
+    marginHorizontal: moderateScale(50),
+    marginVertical: moderateScale(30),
+  },
 });
 export default styling;
