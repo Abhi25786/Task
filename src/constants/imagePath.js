@@ -7,4 +7,5 @@ export default {
   trash: require('../assets/images/delete.png'),
   update: require('../assets/images/edit.png'),
   Google: require('../assets/images/Google.png'),
+  InTro: require('../assets/images/Todo.png'),
 };

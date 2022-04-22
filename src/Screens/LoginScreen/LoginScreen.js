@@ -143,6 +143,7 @@ function LoginScreen() {
     <SafeAreaView style={addcss.MainContainer}>
       <View>
         <HeadComponent Title={langstring.LOGIN} />
+
         <ScrollView>
           {/* ------------------------------------Email textinput------------------------------------- */}
           <TextInputComponent
@@ -166,7 +167,7 @@ function LoginScreen() {
           <TextInputComponent
             leftImage={true}
             image={imagePath?.password}
-            placeholder={langstring.PASSWORD}
+            placeholder={langstring?.PASSWORD}
             placeholderTextColor={colors?.black}
             value={password}
             onchangetext={event => setpassword(event)}

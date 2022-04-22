@@ -38,7 +38,8 @@ const TextInputComponent = ({
       </View>
 
       {rightImage && (
-        <View style={{flex: 0.15, alignItems: 'flex-end'}}>
+        <View
+          style={{flex: 0.15, alignItems: 'flex-end', backgroundColor: 'red'}}>
           <Image source={img} style={styles.image} />
         </View>
       )}
